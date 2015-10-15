@@ -193,7 +193,6 @@ public class ShareSelectPicActivity extends BaseActivity {
 		gridview = (GridView) findViewById(R.id.pics_of_one_folder_gridview);
 		adapter = new PictureAdapter();
 		gridview.setAdapter(adapter);
-
 		/**
 		 * 如果是第一张则是打开照相机
 		 */

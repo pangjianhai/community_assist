@@ -1,5 +1,6 @@
 package cn.com.hzzc.industrial.pro;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import android.app.AlertDialog;
@@ -145,10 +146,14 @@ public class AddActivityActivity extends ParentActActivity implements
 	@Override
 	public void onClick(View v) {
 		if (v.getId() == R.id.add_act_img) {
-			System.out.println("************************selectPicture");
-			Toast.makeText(getApplicationContext(), "XXXXXXXXXXXX",
-					Toast.LENGTH_SHORT).show();
 			selectPicture(null);
+		}
+	}
+
+	public void selectActImg(ArrayList<String> list) {
+		System.out.println("0000000000000000000");
+		if (!list.isEmpty()) {
+			System.out.println(list.get(0));
 		}
 	}
 }

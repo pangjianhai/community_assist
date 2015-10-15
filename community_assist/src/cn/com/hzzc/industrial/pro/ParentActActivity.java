@@ -19,7 +19,8 @@ public class ParentActActivity extends BaseActivity {
 	public static final int REQUEST_PICK = 0;
 
 	public void selectPicture(View view) {
-		Intent intent = new Intent(this, ShareSelectPicActivity.class);
+		Intent intent = new Intent(ParentActActivity.this,
+				ShareSelectPicActivity.class);
 		intent.putExtra(
 				ShareSelectPicActivity.INTENT_SELECTED_PICTURE_FROM_BEGINACTIVITY,
 				selectedPicture.size());
@@ -32,7 +33,11 @@ public class ParentActActivity extends BaseActivity {
 		if (resultCode == RESULT_OK) {
 			ArrayList<String> newPics = (ArrayList<String>) data
 					.getSerializableExtra(ShareSelectPicActivity.INTENT_SELECTED_PICTURE);
-			System.out.println("========newPics:" + newPics.size());
+			selectActImg(newPics);
 		}
+	}
+
+	public void selectActImg(ArrayList<String> list) {
+
 	}
 }
