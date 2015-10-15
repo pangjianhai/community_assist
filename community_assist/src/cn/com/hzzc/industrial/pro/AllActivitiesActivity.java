@@ -55,6 +55,7 @@ public class AllActivitiesActivity extends BaseActivity implements
 		for (int i = 0; i < 10; i++) {
 			ActivityEntity act = new ActivityEntity();
 			act.setTitle("xxx" + i);
+			ds.add(act);
 		}
 		actItemAdapter.notifyDataSetChanged();
 	}
@@ -91,14 +92,12 @@ public class AllActivitiesActivity extends BaseActivity implements
 
 	@Override
 	public void onRefresh() {
-		// TODO Auto-generated method stub
-
+		onLoadOver();
 	}
 
 	@Override
 	public void onLoadMore() {
-		// TODO Auto-generated method stub
-
+		loadDataMore();
 	}
 
 	@Override
