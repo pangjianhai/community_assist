@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:background="@color/white" >
 
     <RelativeLayout
@@ -20,13 +20,56 @@
             android:src="@drawable/close_page" />
 
         <TextView
-            android:id="@+id/add_task_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="社群活动详情"
+            android:text="主题详情"
             android:textColor="@color/black"
             android:textSize="20sp" />
+    </RelativeLayout>
+
+    <!-- ScrollView有规则，内部只允许有一只child，所以需要把所有控件外层包裹一个layout -->
+
+    <RelativeLayout
+        android:id="@+id/share_all_detail_content_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_space_title_bar"
+        android:padding="0dp" >
+
+        <LinearLayout
+            android:id="@+id/topic_post_div_notice"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_below="@+id/share_total_n"
+            android:orientation="horizontal" >
+
+            <View
+                android:id="@+id/left_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="4dp"
+                android:layout_weight="1"
+                android:background="#FFA500" />
+
+            <View
+                android:id="@+id/right_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="4dp"
+                android:layout_weight="1"
+                android:background="#dedede" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_space_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/topic_post_div_notice" >
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/act_fragment_parent_viewpager"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" />
+        </LinearLayout>
     </RelativeLayout>
 
 </RelativeLayout>
