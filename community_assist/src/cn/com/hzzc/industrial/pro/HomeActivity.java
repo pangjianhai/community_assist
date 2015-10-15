@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.widget.Button;
 
 /**
  * @todo 首页
@@ -13,17 +14,24 @@ import android.view.Window;
  */
 public class HomeActivity extends BaseActivity implements OnClickListener {
 
+	private Button home_activities;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.community_home);
+		init();
+	}
 
+	private void init() {
+		home_activities = (Button) findViewById(R.id.home_activities);
+		home_activities.setOnClickListener(this);
 	}
 
 	@Override
 	public void onClick(View v) {
-		System.out.println("__v.getId():"+v.getId());
+		System.out.println("__v.getId():" + v.getId());
 		if (v.getId() == R.id.home_activities) {
 			listActivity();
 		}

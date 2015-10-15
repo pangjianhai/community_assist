@@ -7,6 +7,7 @@ import java.util.Map;
 
 import android.os.Bundle;
 import android.view.Window;
+import android.widget.Toast;
 import cn.com.hzzc.industrial.pro.adapter.ActivityItemAdapter;
 import cn.com.hzzc.industrial.pro.entity.ActivityEntity;
 import cn.com.hzzc.industrial.pro.opsinterface.IActivityOperator;
@@ -102,7 +103,7 @@ public class AllActivitiesActivity extends BaseActivity implements
 
 	@Override
 	public void clickAct(ActivityEntity bean) {
-		// TODO Auto-generated method stub
-
+		Toast.makeText(getApplicationContext(), bean.getTitle(),
+				Toast.LENGTH_SHORT).show();
 	}
 }
