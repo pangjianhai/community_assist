@@ -44,7 +44,7 @@
     <application
         android:name="cn.com.hzzc.industrial.pro.GloableApplication"
         android:allowBackup="true"
-        android:icon="@drawable/hxjt"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
@@ -58,15 +58,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="cn.com.hzzc.industrial.pro.TaskListLayoutActivity" >
+        <activity android:name=".TaskListLayoutActivity" >
         </activity>
-        <activity android:name="cn.com.hzzc.industrial.pro.TaskDetailLayoutActivity" >
+        <activity android:name=".TaskDetailLayoutActivity" >
         </activity>
-        <activity android:name="cn.com.hzzc.industrial.pro.CreateTaskAssgineActivity" >
+        <activity android:name=".CreateTaskAssgineActivity" >
         </activity>
-        <activity android:name="cn.com.hzzc.industrial.pro.ShowTaskActivity" >
+        <activity android:name=".ShowTaskActivity" >
         </activity>
-
+        <activity android:name=".AllActivitiesActivity" >
+        </activity>
+        <activity android:name=".ActivityDetailActivity" >
+        </activity>
+         <activity android:name=".AddActivityActivity" >
+        </activity>
         <!-- Required SDK核心功能 -->
         <activity
             android:name="cn.jpush.android.ui.PushActivity"
