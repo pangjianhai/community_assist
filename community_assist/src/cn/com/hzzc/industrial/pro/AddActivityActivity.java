@@ -6,7 +6,7 @@ import java.util.Calendar;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.graphics.BitmapFactory;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.MotionEvent;
@@ -185,6 +185,9 @@ public class AddActivityActivity extends ParentActActivity implements
 	 * @return:void
 	 */
 	public void next(View v) {
-
+		Intent intent = new Intent();
+		intent.setClass(AddActivityActivity.this,
+				ShowActivityDetailActivity.class);
+		startActivity(intent);
 	}
 }
