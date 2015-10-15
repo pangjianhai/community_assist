@@ -49,16 +49,18 @@
 
         <Button
             android:id="@+id/home_add_activity"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/login_login_btn"
-            android:layout_marginLeft="23dp"
-            android:layout_marginTop="5dp"
-            android:background="#0000"
-            android:onClick="get_pw"
-            android:text="新建活动"
-            android:textColor="#00f"
-            android:textSize="16sp" />
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/home_activities"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/btn_ok_selector"
+            android:onClick="loginHealthApp"
+            android:text="创建活动"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
     </RelativeLayout>
 
 </RelativeLayout>

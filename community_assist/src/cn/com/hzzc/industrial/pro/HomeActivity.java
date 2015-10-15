@@ -14,7 +14,7 @@ import android.widget.Button;
  */
 public class HomeActivity extends BaseActivity implements OnClickListener {
 
-	private Button home_activities;
+	private Button home_activities, home_add_activity;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -27,6 +27,8 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
 	private void init() {
 		home_activities = (Button) findViewById(R.id.home_activities);
 		home_activities.setOnClickListener(this);
+		home_add_activity = (Button) findViewById(R.id.home_add_activity);
+		home_add_activity.setOnClickListener(this);
 	}
 
 	@Override
@@ -34,6 +36,9 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
 		System.out.println("__v.getId():" + v.getId());
 		if (v.getId() == R.id.home_activities) {
 			listActivity();
+		}
+		if (v.getId() == R.id.home_add_activity) {
+			createAct();
 		}
 	}
 
@@ -46,7 +51,12 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
 	private void listActivity() {
 		Intent intent = new Intent();
 		intent.setClass(HomeActivity.this, AllActivitiesActivity.class);
-		System.out.println("**********listActivity");
+		startActivity(intent);
+	}
+
+	private void createAct() {
+		Intent intent = new Intent();
+		intent.setClass(HomeActivity.this, AddActivityActivity.class);
 		startActivity(intent);
 	}
 
