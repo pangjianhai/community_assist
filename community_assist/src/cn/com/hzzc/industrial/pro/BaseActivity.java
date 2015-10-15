@@ -1,6 +1,8 @@
 package cn.com.hzzc.industrial.pro;
 
+import java.io.File;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -62,18 +64,22 @@ public class BaseActivity extends InstrumentedActivity {
 	}
 
 	/**
+	 * 
 	 * @param url
+	 *            地址
 	 * @param p
+	 *            参数
 	 * @param rcb
+	 *            回调函数
 	 * @user:pang
-	 * @data:2015年7月19日
-	 * @todo:普通的http请求
+	 * @data:2015年7月13日
+	 * @todo:发送普通的POST http请求
 	 * @return:void
 	 */
 	public void send_normal_request(String url, Map<String, String> p,
 			RequestCallBack<?> rcb) {
 		if (!isNetWorkConnected()) {
-			Toast.makeText(getApplicationContext(), "无法连接网络",
+			Toast.makeText(getApplicationContext(), "没有网络咯！",
 					Toast.LENGTH_SHORT).show();
 			return;
 		}
@@ -81,7 +87,7 @@ public class BaseActivity extends InstrumentedActivity {
 		if (p != null) {
 			Iterator<Map.Entry<String, String>> it = p.entrySet().iterator();
 			/**
-			 * 构造参数
+			 * 添加参数
 			 */
 			while (it.hasNext()) {
 				Map.Entry<String, String> entry = it.next();
@@ -89,7 +95,35 @@ public class BaseActivity extends InstrumentedActivity {
 			}
 		}
 		HttpUtils http = new HttpUtils();
-		http.send(HttpRequest.HttpMethod.GET, url, params, rcb);
+		http.send(HttpRequest.HttpMethod.POST, url, params, rcb);
+		// Toast.makeText(this, "【测试代码】刚进行了http请求", Toast.LENGTH_SHORT).show();
+	}
+
+	public void send_normal_request_for_file(String url, Map<String, String> p,
+			List<File> files, RequestCallBack<?> rcb) {
+		if (!isNetWorkConnected()) {
+			Toast.makeText(getApplicationContext(), "没有网络咯！",
+					Toast.LENGTH_SHORT).show();
+			return;
+		}
+		RequestParams params = new RequestParams();
+		if (p != null) {
+			Iterator<Map.Entry<String, String>> it = p.entrySet().iterator();
+			/**
+			 * 添加参数
+			 */
+			while (it.hasNext()) {
+				Map.Entry<String, String> entry = it.next();
+				params.addBodyParameter(entry.getKey(), entry.getValue());
+			}
+		}
+		if (files != null && !files.isEmpty()) {
+			for (File f : files) {
+				params.addBodyParameter(f.getAbsolutePath(), f);
+			}
+		}
+		HttpUtils http = new HttpUtils();
+		http.send(HttpRequest.HttpMethod.POST, url, params, rcb);
 	}
 
 	/**

@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
-import android.widget.Button;
 
 /**
  * @todo 首页
@@ -37,7 +36,8 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
 	 */
 	private void listActivity() {
 		Intent intent = new Intent();
-		intent.setClass(HomeActivity.this, HomeActivity.class);
+		intent.setClass(HomeActivity.this, AllActivitiesActivity.class);
+		System.out.println("**********listActivity");
 		startActivity(intent);
 	}
 
