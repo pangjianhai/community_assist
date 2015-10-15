@@ -146,7 +146,7 @@ public class AppLoginStartActivity extends ParentTaskActivity {
 		/**
 		 * 全局变量设置
 		 */
-		GloableApplication.setLoginName(loginName);
+		// GloableApplication.setLoginName(loginName);
 		Intent intent = new Intent();
 		intent.setClass(AppLoginStartActivity.this, HomeActivity.class);
 		startActivity(intent);

@@ -28,12 +28,12 @@ import com.lidroid.xutils.http.client.HttpRequest;
  *
  */
 public class BaseActivity extends InstrumentedActivity {
-	public String loginName;
+	public String userId;
 
 	@Override
 	public void onCreate(Bundle b) {
 		super.onCreate(b);
-		this.loginName = GloableApplication.getLoginName();
+		this.userId = GloableApplication.getUserId();
 		ActivityCollector.addActivity(this);
 
 	}
@@ -127,7 +127,7 @@ public class BaseActivity extends InstrumentedActivity {
 	};
 
 	public void initAlis() {
-		mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, loginName));
+		mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, userId));
 	}
 
 	private final TagAliasCallback mAliasCallback = new TagAliasCallback() {
