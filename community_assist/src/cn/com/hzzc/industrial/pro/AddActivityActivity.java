@@ -166,8 +166,10 @@ public class AddActivityActivity extends ParentActActivity implements
 		}
 	}
 
+	/**
+	 * 选择了背景图片
+	 */
 	public void selectActImg(ArrayList<String> list) {
-		System.out.println("0000000000000000000");
 		if (!list.isEmpty()) {
 			String path = list.get(0);
 			ImageLoader.getInstance().displayImage("file://" + path,
