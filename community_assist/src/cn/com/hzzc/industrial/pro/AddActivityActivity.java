@@ -15,13 +15,14 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 /**
  * @todo 添加具体活动
  * @author pang
  *
  */
-public class AddActivityActivity extends BaseActivity implements
+public class AddActivityActivity extends ParentActActivity implements
 		View.OnTouchListener, OnClickListener {
 
 	private EditText add_act_beginDate, add_act_endDate;
@@ -144,7 +145,10 @@ public class AddActivityActivity extends BaseActivity implements
 	@Override
 	public void onClick(View v) {
 		if (v.getId() == R.id.add_act_img) {
-
+			System.out.println("************************selectPicture");
+			Toast.makeText(getApplicationContext(), "XXXXXXXXXXXX",
+					Toast.LENGTH_SHORT).show();
+			selectPicture(null);
 		}
 	}
 }

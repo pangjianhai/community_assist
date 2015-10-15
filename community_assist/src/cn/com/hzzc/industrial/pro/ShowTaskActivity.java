@@ -6,6 +6,6 @@ package cn.com.hzzc.industrial.pro;
  * @author pang
  *
  */
-public class ShowTaskActivity extends ParentTaskActivity {
+public class ShowTaskActivity extends ParentActActivity {
 
 }

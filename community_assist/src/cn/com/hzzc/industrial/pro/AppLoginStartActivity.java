@@ -24,7 +24,7 @@ import com.lidroid.xutils.http.callback.RequestCallBack;
  * @todo 登陆框
  *
  */
-public class AppLoginStartActivity extends ParentTaskActivity {
+public class AppLoginStartActivity extends ParentActActivity {
 
 	private LineEditText mUser; // 帐号编辑框
 	private LineEditText mPassword; // 密码编辑框
