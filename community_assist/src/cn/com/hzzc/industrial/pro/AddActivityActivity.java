@@ -3,6 +3,8 @@ package cn.com.hzzc.industrial.pro;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -153,7 +155,9 @@ public class AddActivityActivity extends ParentActActivity implements
 	public void selectActImg(ArrayList<String> list) {
 		System.out.println("0000000000000000000");
 		if (!list.isEmpty()) {
-			System.out.println(list.get(0));
+			String path = list.get(0);
+			ImageLoader.getInstance().displayImage("file://" + path,
+					add_act_img, GloableApplication.getDisplayImageOption());
 		}
 	}
 }
