@@ -3,11 +3,10 @@ package cn.com.hzzc.industrial.pro;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import com.nostra13.universalimageloader.core.ImageLoader;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.MotionEvent;
@@ -18,7 +17,8 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TimePicker;
-import android.widget.Toast;
+
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
  * @todo 添加具体活动
@@ -29,7 +29,11 @@ public class AddActivityActivity extends ParentActActivity implements
 		View.OnTouchListener, OnClickListener {
 
 	private EditText add_act_beginDate, add_act_endDate;
-	private ImageView add_act_img;
+	private ImageView add_act_img, add_act_self;
+	/**
+	 * 专属本社区
+	 */
+	private boolean isSelf = false;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -47,6 +51,9 @@ public class AddActivityActivity extends ParentActActivity implements
 
 		add_act_img = (ImageView) findViewById(R.id.add_act_img);
 		add_act_img.setOnClickListener(this);
+
+		add_act_self = (ImageView) findViewById(R.id.add_act_self);
+		add_act_self.setOnClickListener(this);
 	}
 
 	@Override
@@ -147,8 +154,15 @@ public class AddActivityActivity extends ParentActActivity implements
 
 	@Override
 	public void onClick(View v) {
-		if (v.getId() == R.id.add_act_img) {
+		if (v.getId() == R.id.add_act_img) {// 选择背景图片
 			selectPicture(null);
+		} else if (v.getId() == R.id.add_act_self) {// 调整是否专属本社群
+			isSelf = !isSelf;
+			if (isSelf) {
+				add_act_self.setImageResource(R.drawable.table_on);
+			} else {
+				add_act_self.setImageResource(R.drawable.table_off);
+			}
 		}
 	}
 
@@ -159,5 +173,16 @@ public class AddActivityActivity extends ParentActActivity implements
 			ImageLoader.getInstance().displayImage("file://" + path,
 					add_act_img, GloableApplication.getDisplayImageOption());
 		}
+	}
+
+	/**
+	 * @param v
+	 * @user:pang
+	 * @data:2015年10月15日
+	 * @todo:点击下一步
+	 * @return:void
+	 */
+	public void next(View v) {
+
 	}
 }
