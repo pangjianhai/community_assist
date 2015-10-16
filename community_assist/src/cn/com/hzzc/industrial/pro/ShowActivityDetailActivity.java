@@ -6,7 +6,6 @@ import java.util.List;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
@@ -19,6 +18,9 @@ import cn.com.hzzc.industrial.pro.part.HomeFrameAdapter;
  *
  */
 public class ShowActivityDetailActivity extends BaseFragmentActivity {
+	
+	private String actId;
+	private String actType;
 
 	public final static int num = 3;
 
