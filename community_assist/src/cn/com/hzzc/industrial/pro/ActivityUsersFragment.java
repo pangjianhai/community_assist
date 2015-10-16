@@ -20,7 +20,7 @@ import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 
-public class ActivityUsersFragment extends BaseTopicFragment implements
+public class ActivityUsersFragment extends ParentActFragment implements
 		IXListViewListener {
 
 	private View mMainView;

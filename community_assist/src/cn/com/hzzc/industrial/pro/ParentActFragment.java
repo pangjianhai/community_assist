@@ -18,7 +18,7 @@ import com.lidroid.xutils.http.RequestParams;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest;
 
-public abstract class BaseTopicFragment extends Fragment {
+public abstract class ParentActFragment extends Fragment {
 
 	public int tag;
 	public View mMainView;

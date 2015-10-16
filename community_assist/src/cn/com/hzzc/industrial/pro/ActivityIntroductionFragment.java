@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class ActivityIntroductionFragment extends BaseTopicFragment {
+public class ActivityIntroductionFragment extends ParentActFragment {
 
 	public static ActivityIntroductionFragment newInstance(int tag) {
 		ActivityIntroductionFragment fragment = new ActivityIntroductionFragment();
