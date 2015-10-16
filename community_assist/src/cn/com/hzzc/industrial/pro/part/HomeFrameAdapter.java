@@ -6,6 +6,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+/**
+ * @todo fragment适配器
+ * @author pang
+ *
+ */
 public class HomeFrameAdapter extends FragmentPagerAdapter {
 
 	List<Fragment> list;
@@ -22,8 +27,13 @@ public class HomeFrameAdapter extends FragmentPagerAdapter {
 	}
 
 	@Override
-	public Fragment getItem(int arg0) {
-		return list.get(arg0);
+	public Fragment getItem(int i) {
+		return list.get(i);
+	}
+
+	@Override
+	public int getItemPosition(Object index) {
+		return super.getItemPosition(index);
 	}
 
 }

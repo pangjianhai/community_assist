@@ -18,7 +18,7 @@ import cn.com.hzzc.industrial.pro.part.HomeFrameAdapter;
  *
  */
 public class ShowActivityDetailActivity extends BaseFragmentActivity {
-	
+
 	private String actId;
 	private String actType;
 
@@ -29,7 +29,7 @@ public class ShowActivityDetailActivity extends BaseFragmentActivity {
 	private List<Fragment> lists = new ArrayList<Fragment>();
 	private HomeFrameAdapter myAdapter;
 	/**** 指示 ****/
-	private View left_arrow, right_arrow;
+	private View left_arrow, center_arrow, right_arrow;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -40,10 +40,13 @@ public class ShowActivityDetailActivity extends BaseFragmentActivity {
 	}
 
 	private void init() {
-		Fragment sspace = new ActivityIntroductionFragment();
-		Fragment tspace = new ActivityUsersFragment();
+		Fragment sspace = ActivityIntroductionFragment.newInstance(0);
+		Fragment tspace = ActivityTypeOneFragment.newInstance(1);
+		Fragment uspace = ActivityUsersFragment.newInstance(2);
+
 		lists.add(sspace);
 		lists.add(tspace);
+		lists.add(uspace);
 
 		myAdapter = new HomeFrameAdapter(getSupportFragmentManager(), lists);
 		/**
@@ -52,8 +55,10 @@ public class ShowActivityDetailActivity extends BaseFragmentActivity {
 		viewPager = (ViewPager) findViewById(R.id.act_fragment_parent_viewpager);
 		viewPager.setAdapter(myAdapter);
 		viewPager.setOnPageChangeListener(new MyOnPageChangeListener());
+		viewPager.setCurrentItem(0);
 
 		left_arrow = findViewById(R.id.left_arrow);
+		center_arrow = findViewById(R.id.center_arrow);
 		right_arrow = findViewById(R.id.right_arrow);
 	}
 
@@ -62,13 +67,12 @@ public class ShowActivityDetailActivity extends BaseFragmentActivity {
 		@Override
 		public void onPageSelected(int index) { // arg0:点击的第几页
 			int orange_color = Color.parseColor("#FFA500");
-			int white_color = Color.parseColor("#dedede");
+			resetView();
 			if (index == 0) {
-
 				left_arrow.setBackgroundColor(orange_color);
-				right_arrow.setBackgroundColor(white_color);
 			} else if (index == 1) {
-				left_arrow.setBackgroundColor(white_color);
+				center_arrow.setBackgroundColor(orange_color);
+			} else if (index == 2) {
 				right_arrow.setBackgroundColor(orange_color);
 			}
 		}
@@ -83,5 +87,12 @@ public class ShowActivityDetailActivity extends BaseFragmentActivity {
 
 		}
 
+	}
+
+	private void resetView() {
+		int white_color = Color.parseColor("#dedede");
+		left_arrow.setBackgroundColor(white_color);
+		center_arrow.setBackgroundColor(white_color);
+		right_arrow.setBackgroundColor(white_color);
 	}
 }

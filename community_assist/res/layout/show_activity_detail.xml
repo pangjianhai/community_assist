@@ -26,6 +26,16 @@
             android:text="社群活动详情"
             android:textColor="@color/black"
             android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:paddingRight="10dp"
+            android:text="发布"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
     </RelativeLayout>
 
     <!-- ScrollView有规则，内部只允许有一只child，所以需要把所有控件外层包裹一个layout -->
@@ -41,7 +51,6 @@
             android:id="@+id/topic_post_div_notice"
             android:layout_width="match_parent"
             android:layout_height="4dp"
-            android:layout_below="@+id/share_total_n"
             android:orientation="horizontal" >
 
             <View
@@ -50,6 +59,13 @@
                 android:layout_height="4dp"
                 android:layout_weight="1"
                 android:background="#FFA500" />
+
+            <View
+                android:id="@+id/center_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="4dp"
+                android:layout_weight="1"
+                android:background="#dedede" />
 
             <View
                 android:id="@+id/right_arrow"

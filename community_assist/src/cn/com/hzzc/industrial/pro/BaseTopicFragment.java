@@ -20,23 +20,32 @@ import com.lidroid.xutils.http.client.HttpRequest;
 
 public abstract class BaseTopicFragment extends Fragment {
 
+	public int tag;
+	public View mMainView;
+	private static final int DEFAULT_TAG = -1;
 	/**
 	 * 用户ID
 	 */
 	public String userId;
 
 	@Override
-	public void onCreate(Bundle b) {
-		super.onCreate(b);
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
 		/**
 		 * 获取用户ID
 		 */
 		userId = GloableApplication.getUserId();
+		Bundle b = getArguments();
+		tag = (null == b ? DEFAULT_TAG : b.getInt("tag"));
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
+		ViewGroup p = (ViewGroup) mMainView.getParent();
+		if (p != null) {
+			p.removeAllViewsInLayout();
+		}
 		return super.onCreateView(inflater, container, savedInstanceState);
 	}
 

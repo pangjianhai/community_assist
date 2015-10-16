@@ -5,10 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class ActivityIntroductionFragment extends BaseTopicFragment {
+public class ActivityTypeOneFragment extends BaseTopicFragment {
 
-	public static ActivityIntroductionFragment newInstance(int tag) {
-		ActivityIntroductionFragment fragment = new ActivityIntroductionFragment();
+	private View mMainView;
+
+	public static ActivityTypeOneFragment newInstance(int tag) {
+		ActivityTypeOneFragment fragment = new ActivityTypeOneFragment();
 		Bundle b = new Bundle();
 		b.putInt("tag", tag);
 		fragment.setArguments(b);
@@ -20,7 +22,7 @@ public class ActivityIntroductionFragment extends BaseTopicFragment {
 		super.onCreate(savedInstanceState);
 		LayoutInflater inflater = getActivity().getLayoutInflater();
 		mMainView = inflater.inflate(
-				R.layout.activity_intro_fragment,
+				R.layout.activity_type_one_fragment,
 				(ViewGroup) getActivity().findViewById(
 						R.id.act_fragment_parent_viewpager), false);
 	}
@@ -28,7 +30,6 @@ public class ActivityIntroductionFragment extends BaseTopicFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-
 		return super.onCreateView(inflater, container, savedInstanceState);
 	}
 }

@@ -9,6 +9,14 @@ public class ActivityUsersFragment extends BaseTopicFragment {
 
 	private View mMainView;
 
+	public static ActivityUsersFragment newInstance(int tag) {
+		ActivityUsersFragment fragment = new ActivityUsersFragment();
+		Bundle b = new Bundle();
+		b.putInt("tag", tag);
+		fragment.setArguments(b);
+		return fragment;
+	}
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -22,7 +30,6 @@ public class ActivityUsersFragment extends BaseTopicFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		ViewGroup viewGroup = (ViewGroup) mMainView.getParent();
-		return mMainView;
+		return super.onCreateView(inflater, container, savedInstanceState);
 	}
 }
