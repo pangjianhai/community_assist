@@ -29,6 +29,10 @@ public class ActivityTypeOneFragment extends BaseTopicFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		super.onCreateView(inflater, container, savedInstanceState);
+		ViewGroup p = (ViewGroup) mMainView.getParent();
+		if (p != null) {
+			p.removeAllViewsInLayout();
+		}
 		return mMainView;
 	}
 }

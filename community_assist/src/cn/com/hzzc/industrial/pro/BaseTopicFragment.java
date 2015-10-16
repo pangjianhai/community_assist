@@ -42,10 +42,6 @@ public abstract class BaseTopicFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		ViewGroup p = (ViewGroup) mMainView.getParent();
-		if (p != null) {
-			p.removeAllViewsInLayout();
-		}
 		return super.onCreateView(inflater, container, savedInstanceState);
 	}
 

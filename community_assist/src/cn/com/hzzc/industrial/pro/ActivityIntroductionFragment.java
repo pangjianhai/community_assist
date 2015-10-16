@@ -30,6 +30,10 @@ public class ActivityIntroductionFragment extends BaseTopicFragment {
 			Bundle savedInstanceState) {
 
 		super.onCreateView(inflater, container, savedInstanceState);
+		ViewGroup p = (ViewGroup) mMainView.getParent();
+		if (p != null) {
+			p.removeAllViewsInLayout();
+		}
 		return mMainView;
 	}
 }
