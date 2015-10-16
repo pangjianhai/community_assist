@@ -7,8 +7,6 @@ import android.view.ViewGroup;
 
 public class ActivityTypeOneFragment extends BaseTopicFragment {
 
-	private View mMainView;
-
 	public static ActivityTypeOneFragment newInstance(int tag) {
 		ActivityTypeOneFragment fragment = new ActivityTypeOneFragment();
 		Bundle b = new Bundle();
@@ -30,6 +28,7 @@ public class ActivityTypeOneFragment extends BaseTopicFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		return super.onCreateView(inflater, container, savedInstanceState);
+		super.onCreateView(inflater, container, savedInstanceState);
+		return mMainView;
 	}
 }

@@ -29,6 +29,7 @@ public class ActivityIntroductionFragment extends BaseTopicFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 
-		return super.onCreateView(inflater, container, savedInstanceState);
+		super.onCreateView(inflater, container, savedInstanceState);
+		return mMainView;
 	}
 }
