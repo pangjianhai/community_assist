@@ -95,4 +95,8 @@ public class ShowActivityDetailActivity extends BaseFragmentActivity {
 		center_arrow.setBackgroundColor(white_color);
 		right_arrow.setBackgroundColor(white_color);
 	}
+
+	public void backoff(View v) {
+		finish();
+	}
 }

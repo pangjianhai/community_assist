@@ -10,4 +10,17 @@
         android:layout_height="wrap_content"
         android:text="详情" />
 
+    <Button
+        android:id="@+id/type_2_add"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/btn_ok_selector"
+        android:text="添加问题"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+
 </RelativeLayout>
