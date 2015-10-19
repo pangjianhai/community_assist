@@ -54,7 +54,7 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 		type_2_add.setOnClickListener(this);
 
 		View diaView = View.inflate(getActivity(),
-				R.layout.act_question_dialog, null);
+				R.layout.act_statistics_dialog, null);
 		dialog = new Dialog(getActivity(), R.style.question_dialog);
 		dialog.setContentView(diaView);
 
