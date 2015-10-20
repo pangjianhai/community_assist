@@ -27,6 +27,7 @@ public interface SystemConst {
 		 */
 		public static final String save_act_type_2 = "commController/addCommenActivity.do";
 		public static final String questionItem = "commController/questionItem.do";
+		public static final String queryQuestionItemByquestionId = "commController/queryQuestionItemByquestionId.do";
 		public static final String editQuestionItem = "commController/editQuestionItem.do";
 		public static final String delQuestionItem = "commController/delQuestionItem.do";
 		public static final String queryCommenActivityByIdForQuestionDetailIdByType = "commController/queryCommenActivityByIdForQuestionDetailIdByType.do";

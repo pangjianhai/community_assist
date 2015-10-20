@@ -7,10 +7,6 @@ import java.util.Map;
 
 import org.json.JSONObject;
 
-import com.lidroid.xutils.exception.HttpException;
-import com.lidroid.xutils.http.ResponseInfo;
-import com.lidroid.xutils.http.callback.RequestCallBack;
-
 import android.app.Dialog;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -29,6 +25,10 @@ import cn.com.hzzc.industrial.pro.cons.SystemConst;
 import cn.com.hzzc.industrial.pro.entity.CheckItem;
 import cn.com.hzzc.industrial.pro.opsinterface.IQuestionItemOperator;
 import cn.com.hzzc.industrial.pro.util.ActUtils;
+
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.ResponseInfo;
+import com.lidroid.xutils.http.callback.RequestCallBack;
 
 public class ActivityTypeOneFragment extends ParentActFragment implements
 		OnClickListener, IQuestionItemOperator {
@@ -112,17 +112,15 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 
 	}
 
+	/**
+	 * @user:pang
+	 * @data:2015年10月20日
+	 * @todo:加载数据
+	 * @return:void
+	 */
 	private void loadData() {
-		for (int i = 0; i < 9; i++) {
-			CheckItem ci = new CheckItem();
-			ci.setItemName("您对这个优惠的价格感到满意吗？" + i);
-			ds.add(ci);
-		}
-		adapter.notifyDataSetChanged();
-	}
-
-	private void getCommonInfo() {
-		String url = SystemConst.server_url + SystemConst.Type2Url.questionItem;
+		String url = SystemConst.server_url
+				+ SystemConst.Type2Url.queryQuestionItemByquestionId;
 		try {
 			JSONObject d = new JSONObject();
 			d.put("Id", cId);
@@ -131,6 +129,9 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 				@Override
 				public void onSuccess(ResponseInfo<String> responseInfo) {
 					String data = responseInfo.result;
+					List<CheckItem> lst = ActUtils.getQuestioinItems(data);
+					ds.addAll(lst);
+					adapter.notifyDataSetChanged();
 				}
 
 				@Override
@@ -143,6 +144,7 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
 	}
 
 	private String editId;
@@ -196,9 +198,70 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 			question_info.setText("");
 			editId = "";
 			if (editId != null && !"".equals(editId)) {// 修改
+				realEdit(editId, opt);
 			} else {// 新增
-
+				realAdd(opt);
 			}
+		}
+	}
+
+	public void realEdit(String id, String question) {
+		String url = SystemConst.server_url
+				+ SystemConst.Type2Url.editQuestionItem;
+		try {
+			JSONObject d = new JSONObject();
+			d.put("Id", id);
+			d.put("question", question);
+			RequestCallBack<String> rcb = new RequestCallBack<String>() {
+
+				@Override
+				public void onSuccess(ResponseInfo<String> responseInfo) {
+					String data = responseInfo.result;
+					// 删除成功刷新列表
+					adapter.notifyDataSetChanged();
+				}
+
+				@Override
+				public void onFailure(HttpException error, String msg) {
+					Toast.makeText(getActivity(), "删除失败请重试", Toast.LENGTH_SHORT)
+							.show();
+				}
+			};
+			Map map = new HashMap();
+			map.put("para", d.toString());
+			send_normal_request(url, map, rcb);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void realAdd(String question) {
+		String url = SystemConst.server_url
+				+ SystemConst.Type2Url.editQuestionItem;
+		try {
+			JSONObject d = new JSONObject();
+			d.put("questionId", dId);
+			d.put("question", question);
+			RequestCallBack<String> rcb = new RequestCallBack<String>() {
+
+				@Override
+				public void onSuccess(ResponseInfo<String> responseInfo) {
+					String data = responseInfo.result;
+					// 删除成功刷新列表
+					adapter.notifyDataSetChanged();
+				}
+
+				@Override
+				public void onFailure(HttpException error, String msg) {
+					Toast.makeText(getActivity(), "删除失败请重试", Toast.LENGTH_SHORT)
+							.show();
+				}
+			};
+			Map map = new HashMap();
+			map.put("para", d.toString());
+			send_normal_request(url, map, rcb);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 }

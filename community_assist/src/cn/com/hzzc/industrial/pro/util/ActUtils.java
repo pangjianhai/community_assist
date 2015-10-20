@@ -1,9 +1,14 @@
 package cn.com.hzzc.industrial.pro.util;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import cn.com.hzzc.industrial.pro.entity.ActivityEntity;
+import cn.com.hzzc.industrial.pro.entity.CheckItem;
 
 /**
  * @todo 活动工具类
@@ -96,5 +101,43 @@ public class ActUtils {
 			e.printStackTrace();
 		}
 		return ae;
+	}
+
+	/**
+	 * 
+	 * @param data
+	 * @return
+	 * @user:pang
+	 * @data:2015年10月20日
+	 * @todo:获取调查问卷所有问题
+	 * @return:List<CheckItem>
+	 */
+	public static List<CheckItem> getQuestioinItems(String data) {
+		List<CheckItem> l = new ArrayList<CheckItem>();
+		if (data != null && !"".equals(data)) {
+			try {
+				JSONObject js = new JSONObject(data);
+				JSONArray array = js.getJSONArray("questionItems");
+				if (array.length() > 0) {
+					for (int i = 0; i < array.length(); i++) {
+						JSONObject j = array.getJSONObject(i);
+						String Id = j.getString("Id");
+						String questionId = j.getString("questionId");
+						String question = j.getString("question");
+
+						CheckItem ci = new CheckItem();
+						ci.setId(Id);
+						ci.setItemName(question);
+						ci.setActDetailId(questionId);
+						l.add(ci);
+					}
+				}
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return l;
+
 	}
 }
