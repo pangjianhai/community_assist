@@ -6,8 +6,192 @@
     android:background="@color/white" >
 
     <TextView
+        android:id="@+id/title_ly"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="简介" />
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:text="基本详情"
+        android:textColor="@color/blue"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:id="@+id/layout_act_form"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/title_ly"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="5dp" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="活动名字"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/add_act_title"
+                android:layout_width="150dp"
+                android:layout_height="30dp"
+                android:layout_weight="3"
+                android:background="@drawable/bg_share_edittext"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="活动类型"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/add_act_type"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="社群专属"
+                android:textSize="18dp" />
+
+            <ImageView
+                android:id="@+id/add_act_self"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="90dp"
+                android:layout_marginRight="90dp"
+                android:src="@drawable/table_off" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="开始时间"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/add_act_beginDate"
+                android:layout_width="150dp"
+                android:layout_height="30dp"
+                android:layout_weight="3"
+                android:background="@drawable/bg_share_edittext"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/receiver_notice"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="截止事件"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/add_act_endDate"
+                android:layout_width="150dp"
+                android:layout_height="30dp"
+                android:layout_weight="3"
+                android:background="@drawable/bg_share_edittext"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="90dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="活动简介"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/add_act_introduce"
+                android:layout_width="150dp"
+                android:layout_height="80dp"
+                android:layout_weight="3"
+                android:background="@drawable/bg_share_edittext"
+                android:gravity="top"
+                android:maxLines="2"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="背景图片"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/add_act_img"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_weight="3"
+                android:background="@drawable/image_view_style"
+                android:scaleType="centerCrop"
+                android:src="@drawable/add_act_img" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/type_2_add"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:background="@drawable/tabbar_compose_weibo"
+        android:paddingTop="2dp"
+        android:textColor="#ffffff"
+        android:textSize="16sp" />
 
 </RelativeLayout>
