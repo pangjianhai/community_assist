@@ -78,12 +78,35 @@ public class ActivityIntroductionFragment extends ParentActFragment {
 		add_act_img = (ImageView) mMainView.findViewById(R.id.add_act_img);
 	}
 
+	/**
+	 * @param entity
+	 * @user:pang
+	 * @data:2015年10月20日
+	 * @todo:渲染
+	 * @return:void
+	 */
 	public void render(ActivityEntity entity) {
 		add_act_title.setText(entity.getTitle());
-		add_act_type.setText(entity.getType());
+		String proType = entity.getType();
+		String t = "";
+		if ("0".equals(proType)) {
+			t = "线下活动";
+		} else if ("1".equals(proType)) {
+			t = "调查活动";
+		} else if ("2".equals(proType)) {
+			t = "统计活动";
+		}
+		add_act_type.setText(t);
 		add_act_beginDate.setText(entity.getBeginDate());
 		add_act_endDate.setText(entity.getEndDate());
 		add_act_introduce.setText(entity.getIntroduction());
+		boolean isSelf = entity.isIfNeedSelfSociety();
+		if (isSelf) {
+			add_act_self.setImageResource(R.drawable.table_on);
+		} else {
+			add_act_self.setImageResource(R.drawable.table_off);
+		}
+		String imgId = entity.getImgId();
 
 	}
 

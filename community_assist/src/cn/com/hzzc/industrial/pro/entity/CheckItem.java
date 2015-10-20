@@ -7,7 +7,7 @@ package cn.com.hzzc.industrial.pro.entity;
  */
 public class CheckItem {
 	private String id;
-	private String actId;// 所属活动
+	private String actDetailId;// 所属活动
 	private String itemName;// 问题
 	private String type;// 类型
 	private String itemOpts;// 选项
@@ -20,12 +20,12 @@ public class CheckItem {
 		this.id = id;
 	}
 
-	public String getActId() {
-		return actId;
+	public String getActDetailId() {
+		return actDetailId;
 	}
 
-	public void setActId(String actId) {
-		this.actId = actId;
+	public void setActDetailId(String actDetailId) {
+		this.actDetailId = actDetailId;
 	}
 
 	public String getItemName() {

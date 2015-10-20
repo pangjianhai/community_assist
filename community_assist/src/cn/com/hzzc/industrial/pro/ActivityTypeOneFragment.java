@@ -1,7 +1,15 @@
 package cn.com.hzzc.industrial.pro;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import org.json.JSONObject;
+
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.ResponseInfo;
+import com.lidroid.xutils.http.callback.RequestCallBack;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -17,10 +25,13 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 import cn.com.hzzc.industrial.pro.adapter.QuestionItemAdapter;
+import cn.com.hzzc.industrial.pro.cons.SystemConst;
 import cn.com.hzzc.industrial.pro.entity.CheckItem;
+import cn.com.hzzc.industrial.pro.opsinterface.IQuestionItemOperator;
+import cn.com.hzzc.industrial.pro.util.ActUtils;
 
 public class ActivityTypeOneFragment extends ParentActFragment implements
-		OnClickListener {
+		OnClickListener, IQuestionItemOperator {
 
 	private Button type_2_add, question_btn;
 	private EditText question_info;
@@ -30,12 +41,8 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 	private List<CheckItem> ds = new ArrayList<CheckItem>();
 	private QuestionItemAdapter adapter = null;
 
-	public static ActivityTypeOneFragment newInstance(int tag) {
-		ActivityTypeOneFragment fragment = new ActivityTypeOneFragment();
-		Bundle b = new Bundle();
-		b.putInt("tag", tag);
-		fragment.setArguments(b);
-		return fragment;
+	public ActivityTypeOneFragment(String cId) {
+		this.cId = cId;
 	}
 
 	@Override
@@ -98,7 +105,8 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 	 */
 	private void initListView() {
 		item_lv = (ListView) mMainView.findViewById(R.id.item_lv);
-		adapter = new QuestionItemAdapter(getActivity(), ds);
+		adapter = new QuestionItemAdapter(getActivity(), ds,
+				ActivityTypeOneFragment.this);
 		item_lv.setAdapter(adapter);
 		loadData();
 
@@ -123,5 +131,65 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 			ds.add(ci);
 		}
 		adapter.notifyDataSetChanged();
+	}
+
+	private void getCommonInfo() {
+		String url = SystemConst.server_url + SystemConst.Type2Url.questionItem;
+		try {
+			JSONObject d = new JSONObject();
+			d.put("Id", cId);
+			RequestCallBack<String> rcb = new RequestCallBack<String>() {
+
+				@Override
+				public void onSuccess(ResponseInfo<String> responseInfo) {
+					String data = responseInfo.result;
+				}
+
+				@Override
+				public void onFailure(HttpException error, String msg) {
+				}
+			};
+			Map map = new HashMap();
+			map.put("para", d.toString());
+			send_normal_request(url, map, rcb);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void edit(int index, String id) {
+		System.out.println("----------------------------edit");
+
+	}
+
+	@Override
+	public void del(int index, String id) {
+		String url = SystemConst.server_url
+				+ SystemConst.Type2Url.delQuestionItem;
+		try {
+			JSONObject d = new JSONObject();
+			d.put("Id", cId);
+			RequestCallBack<String> rcb = new RequestCallBack<String>() {
+
+				@Override
+				public void onSuccess(ResponseInfo<String> responseInfo) {
+					String data = responseInfo.result;
+					// 删除成功刷新列表
+					adapter.notifyDataSetChanged();
+				}
+
+				@Override
+				public void onFailure(HttpException error, String msg) {
+					Toast.makeText(getActivity(), "删除失败请重试", Toast.LENGTH_SHORT)
+							.show();
+				}
+			};
+			Map map = new HashMap();
+			map.put("para", d.toString());
+			send_normal_request(url, map, rcb);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
