@@ -26,7 +26,7 @@ public interface SystemConst {
 		 * 保存类型2的活动
 		 */
 		public static final String save_act_type_2 = "commController/addCommenActivity.do";
-		public static final String questionItem = "commController/questionItem.do";
+		public static final String addQuestionItem = "commController/addQuestionItem.do";
 		public static final String queryQuestionItemByquestionId = "commController/queryQuestionItemByquestionId.do";
 		public static final String editQuestionItem = "commController/editQuestionItem.do";
 		public static final String delQuestionItem = "commController/delQuestionItem.do";

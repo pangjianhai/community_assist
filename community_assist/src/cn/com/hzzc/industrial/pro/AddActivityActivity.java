@@ -259,8 +259,9 @@ public class AddActivityActivity extends ParentActActivity implements
 	 */
 	@Override
 	public void sendSuccess(String result) {
+		System.out.println("+++++++++++++++++--------result:"+result);
 		if (result.equals(FileUploadUtil.FAILURE)) {
-			Toast.makeText(getApplicationContext(), "保存失败请重试",
+			Toast.makeText(getApplicationContext(), "保存失败请重试!",
 					Toast.LENGTH_SHORT).show();
 			return;
 		}

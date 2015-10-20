@@ -79,7 +79,8 @@ public class ShowActivityDetailActivity extends BaseFragmentActivity {
 		dId = getIntent().getStringExtra("dId");
 		System.out.println("))))cId:" + cId);
 		System.out.println("))))dId:" + dId);
-		cId = "85ff27f0e8624031b9664b1c02280d41";
+		cId = "203c14601fd04272a9a5504552f13263";
+		dId = "c9bcee4dc54a4a4480b5503f7d98a6f6";
 	}
 
 	public class MyOnPageChangeListener implements OnPageChangeListener {

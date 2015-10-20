@@ -123,7 +123,7 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 				+ SystemConst.Type2Url.queryQuestionItemByquestionId;
 		try {
 			JSONObject d = new JSONObject();
-			d.put("Id", cId);
+			d.put("questionId", dId);
 			RequestCallBack<String> rcb = new RequestCallBack<String>() {
 
 				@Override
@@ -147,6 +147,26 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 
 	}
 
+	@Override
+	public void onClick(View v) {
+		if (v.getId() == R.id.type_2_add) {
+			dialog.show();
+		} else if (v.getId() == R.id.question_btn) {// 保存或者修改
+			System.out.println("lcick");
+			Toast.makeText(getActivity(), question_info.getText().toString(),
+					Toast.LENGTH_SHORT).show();
+			dialog.dismiss();
+			String opt = question_info.getText().toString();
+			question_info.setText("");
+			editId = "";
+			if (editId != null && !"".equals(editId)) {// 修改
+				realEdit(editId, opt);
+			} else {// 新增
+				realAdd(opt);
+			}
+		}
+	}
+
 	private String editId;
 
 	@Override
@@ -157,7 +177,7 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 	}
 
 	@Override
-	public void del(int index, String id) {
+	public void del(final int index, String id) {
 		String url = SystemConst.server_url
 				+ SystemConst.Type2Url.delQuestionItem;
 		try {
@@ -169,6 +189,7 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 				public void onSuccess(ResponseInfo<String> responseInfo) {
 					String data = responseInfo.result;
 					// 删除成功刷新列表
+					ds.remove(index);
 					adapter.notifyDataSetChanged();
 				}
 
@@ -186,25 +207,6 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 		}
 	}
 
-	@Override
-	public void onClick(View v) {
-		if (v.getId() == R.id.type_2_add) {
-			dialog.show();
-		} else if (v.getId() == R.id.question_btn) {// 保存或者修改
-			Toast.makeText(getActivity(), question_info.getText().toString(),
-					Toast.LENGTH_SHORT).show();
-			dialog.dismiss();
-			String opt = question_info.getText().toString();
-			question_info.setText("");
-			editId = "";
-			if (editId != null && !"".equals(editId)) {// 修改
-				realEdit(editId, opt);
-			} else {// 新增
-				realAdd(opt);
-			}
-		}
-	}
-
 	public void realEdit(String id, String question) {
 		String url = SystemConst.server_url
 				+ SystemConst.Type2Url.editQuestionItem;
@@ -218,7 +220,7 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 				public void onSuccess(ResponseInfo<String> responseInfo) {
 					String data = responseInfo.result;
 					// 删除成功刷新列表
-					adapter.notifyDataSetChanged();
+					loadData();
 				}
 
 				@Override
@@ -236,8 +238,9 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 	}
 
 	public void realAdd(String question) {
+		System.out.println("___realAdd");
 		String url = SystemConst.server_url
-				+ SystemConst.Type2Url.editQuestionItem;
+				+ SystemConst.Type2Url.addQuestionItem;
 		try {
 			JSONObject d = new JSONObject();
 			d.put("questionId", dId);
@@ -247,14 +250,14 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 				@Override
 				public void onSuccess(ResponseInfo<String> responseInfo) {
 					String data = responseInfo.result;
-					// 删除成功刷新列表
-					adapter.notifyDataSetChanged();
+					loadData();
 				}
 
 				@Override
 				public void onFailure(HttpException error, String msg) {
 					Toast.makeText(getActivity(), "删除失败请重试", Toast.LENGTH_SHORT)
 							.show();
+					error.printStackTrace();
 				}
 			};
 			Map map = new HashMap();

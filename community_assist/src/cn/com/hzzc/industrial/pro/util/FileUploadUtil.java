@@ -27,6 +27,8 @@ public class FileUploadUtil {
 
 	public static String uploadFileAndStringPairCompressed(String actionUrl,
 			Map<String, String> params, List<File> files) {
+		System.out
+				.println("-----------------uploadFileAndStringPairCompressed");
 		HttpURLConnection conn = null;
 		try {
 			String BOUNDARY = java.util.UUID.randomUUID().toString();

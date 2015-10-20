@@ -113,6 +113,7 @@ public class ActUtils {
 	 * @return:List<CheckItem>
 	 */
 	public static List<CheckItem> getQuestioinItems(String data) {
+		System.out.println("data::>" + data);
 		List<CheckItem> l = new ArrayList<CheckItem>();
 		if (data != null && !"".equals(data)) {
 			try {
@@ -121,7 +122,7 @@ public class ActUtils {
 				if (array.length() > 0) {
 					for (int i = 0; i < array.length(); i++) {
 						JSONObject j = array.getJSONObject(i);
-						String Id = j.getString("Id");
+						String Id = j.getString("id");
 						String questionId = j.getString("questionId");
 						String question = j.getString("question");
 
