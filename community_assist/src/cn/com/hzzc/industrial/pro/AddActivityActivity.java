@@ -26,10 +26,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TimePicker;
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 import cn.com.hzzc.industrial.pro.cons.SystemConst;
 import cn.com.hzzc.industrial.pro.task.UploadFileTask;
+import cn.com.hzzc.industrial.pro.util.ActUtils;
 import cn.com.hzzc.industrial.pro.util.CommonDateUtil;
+import cn.com.hzzc.industrial.pro.util.FileUploadUtil;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -243,6 +246,7 @@ public class AddActivityActivity extends ParentActActivity implements
 			String path = list.get(0);
 			ImageLoader.getInstance().displayImage("file://" + path,
 					add_act_img, GloableApplication.getDisplayImageOption());
+			file = path;
 		}
 	}
 
@@ -254,11 +258,19 @@ public class AddActivityActivity extends ParentActActivity implements
 	 * @return:void
 	 */
 	@Override
-	public void sendSuccess() {
-		System.out.println("*******************************sendSuccess");
+	public void sendSuccess(String result) {
+		if (result.equals(FileUploadUtil.FAILURE)) {
+			Toast.makeText(getApplicationContext(), "保存失败请重试",
+					Toast.LENGTH_SHORT).show();
+			return;
+		}
+		String cId = ActUtils.getActId(result);
+		String dId = ActUtils.getActDetailId(result);
 		Intent intent = new Intent();
 		intent.setClass(AddActivityActivity.this,
 				ShowActivityDetailActivity.class);
+		intent.putExtra("cId", cId);
+		intent.putExtra("dId", dId);
 		startActivity(intent);
 	}
 
@@ -266,7 +278,6 @@ public class AddActivityActivity extends ParentActActivity implements
 	public void next(View view) {
 		String url = SystemConst.server_url
 				+ SystemConst.Type2Url.save_act_type_2;
-		System.out.println("**************url:" + url);
 		String title = add_act_title.getText().toString();
 		String intro = add_act_introduce.getText().toString();
 		String begin = add_act_beginDate.getText().toString() + ":00";
@@ -277,6 +288,8 @@ public class AddActivityActivity extends ParentActActivity implements
 			Map textPram = new HashMap();
 			List<File> files = new ArrayList<File>();
 			JSONObject obj = new JSONObject();
+			societyId = "1";
+			obj.put("societyId", societyId);
 			obj.put("type", type);
 			obj.put("title", title);
 			obj.put("introduction", intro);
@@ -285,7 +298,6 @@ public class AddActivityActivity extends ParentActActivity implements
 			obj.put("endDate", end);
 			textPram.put(SystemConst.json_param_name, obj.toString());
 			if (file != null && !"".equals(file)) {
-				System.out.println("*******file:" + file);
 				files.add(new File(file));
 			}
 			map.put(UploadFileTask.text_param, textPram);

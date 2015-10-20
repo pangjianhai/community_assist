@@ -96,7 +96,7 @@ public class UploadFileTask extends
 		pdialog.dismiss();
 		if (UploadUtils.SUCCESS.equalsIgnoreCase(result)) {
 			Toast.makeText(context, "上传成功!", Toast.LENGTH_LONG).show();
-			((ParentActActivity) context).sendSuccess();
+			((ParentActActivity) context).sendSuccess(result);
 		} else {
 			Toast.makeText(context, "上传失败，请重新上传一次", Toast.LENGTH_LONG).show();
 		}

@@ -17,6 +17,27 @@ public class ActivityEntity {
 	private String createDate;
 	private String beginDate;
 	private String endDate;
+	// 具体类型下活动的ID
+	private String detailId;
+	private String societyId;
+
+	public boolean isIfNeedSelfSociety() {
+		return ifNeedSelfSociety;
+	}
+
+	public void setIfNeedSelfSociety(boolean ifNeedSelfSociety) {
+		this.ifNeedSelfSociety = ifNeedSelfSociety;
+	}
+
+	private boolean ifNeedSelfSociety;
+
+	public String getSocietyId() {
+		return societyId;
+	}
+
+	public void setSocietyId(String societyId) {
+		this.societyId = societyId;
+	}
 
 	public String getId() {
 		return id;
@@ -96,6 +117,14 @@ public class ActivityEntity {
 
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
+	}
+
+	public String getDetailId() {
+		return detailId;
+	}
+
+	public void setDetailId(String detailId) {
+		this.detailId = detailId;
 	}
 
 }

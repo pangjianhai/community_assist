@@ -1,7 +1,11 @@
 package cn.com.hzzc.industrial.pro;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import org.json.JSONObject;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -10,7 +14,13 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.view.Window;
+import cn.com.hzzc.industrial.pro.cons.SystemConst;
+import cn.com.hzzc.industrial.pro.entity.ActivityEntity;
 import cn.com.hzzc.industrial.pro.part.HomeFrameAdapter;
+
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.ResponseInfo;
+import com.lidroid.xutils.http.callback.RequestCallBack;
 
 /**
  * @todo 添加具体活动
@@ -19,7 +29,8 @@ import cn.com.hzzc.industrial.pro.part.HomeFrameAdapter;
  */
 public class ShowActivityDetailActivity extends BaseFragmentActivity {
 
-	private String actId;
+	private String cId;
+	private String dId;
 	private String actType;
 
 	public final static int num = 3;
@@ -36,11 +47,12 @@ public class ShowActivityDetailActivity extends BaseFragmentActivity {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.show_activity_detail);
+		initParam();
 		init();
 	}
 
 	private void init() {
-		Fragment sspace = ActivityIntroductionFragment.newInstance(0);
+		Fragment sspace = new ActivityIntroductionFragment(cId);
 		Fragment tspace = ActivityTypeOneFragment.newInstance(1);
 		Fragment uspace = ActivityUsersFragment.newInstance(2);
 
@@ -60,6 +72,14 @@ public class ShowActivityDetailActivity extends BaseFragmentActivity {
 		left_arrow = findViewById(R.id.left_arrow);
 		center_arrow = findViewById(R.id.center_arrow);
 		right_arrow = findViewById(R.id.right_arrow);
+	}
+
+	private void initParam() {
+		cId = getIntent().getStringExtra("cId");
+		dId = getIntent().getStringExtra("dId");
+		System.out.println("))))cId:" + cId);
+		System.out.println("))))dId:" + dId);
+		cId = "85ff27f0e8624031b9664b1c02280d41";
 	}
 
 	public class MyOnPageChangeListener implements OnPageChangeListener {

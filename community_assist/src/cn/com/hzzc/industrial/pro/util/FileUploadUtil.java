@@ -1,10 +1,12 @@
 package cn.com.hzzc.industrial.pro.util;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
@@ -105,7 +107,18 @@ public class FileUploadUtil {
 			outStream.flush();
 			int res = conn.getResponseCode();
 			if (res == 200) {
-				return SUCCESS;
+				InputStream is = conn.getInputStream();
+				BufferedReader reader = new BufferedReader(
+						new InputStreamReader(is));
+				StringBuilder sb = new StringBuilder();
+				String line;
+				while ((line = reader.readLine()) != null) {
+					sb.append(line);
+				}
+				String result = sb.toString();
+				is.close();
+				reader.close();
+				return result;
 			} else {
 				return FAILURE;
 			}

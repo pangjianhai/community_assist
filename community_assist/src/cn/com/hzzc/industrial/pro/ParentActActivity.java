@@ -11,6 +11,8 @@ import android.view.View;
  *
  */
 public class ParentActActivity extends BaseActivity {
+
+	public String societyId;
 	/**
 	 * 存储选择图片的路径
 	 */
@@ -47,7 +49,7 @@ public class ParentActActivity extends BaseActivity {
 	 * @todo:新增和编辑用到（操作成功之后的后续操作）
 	 * @return:void
 	 */
-	public void sendSuccess() {
+	public void sendSuccess(String result) {
 
 	}
 }
