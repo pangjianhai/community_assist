@@ -21,6 +21,7 @@ import com.lidroid.xutils.http.client.HttpRequest;
 public abstract class ParentActFragment extends Fragment {
 
 	public String cId;
+	public String dId;
 	public int tag;
 	public View mMainView;
 	private static final int DEFAULT_TAG = -1;

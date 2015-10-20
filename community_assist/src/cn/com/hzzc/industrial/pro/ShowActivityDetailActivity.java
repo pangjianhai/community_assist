@@ -53,8 +53,8 @@ public class ShowActivityDetailActivity extends BaseFragmentActivity {
 
 	private void init() {
 		Fragment sspace = new ActivityIntroductionFragment(cId);
-		Fragment tspace = new ActivityTypeOneFragment(cId);
-		Fragment uspace = ActivityUsersFragment.newInstance(2);
+		Fragment tspace = new ActivityTypeOneFragment(dId);
+		Fragment uspace = new ActivityUsersFragment(dId);
 
 		lists.add(sspace);
 		lists.add(tspace);

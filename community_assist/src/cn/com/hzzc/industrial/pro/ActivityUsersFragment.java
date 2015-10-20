@@ -31,12 +31,8 @@ public class ActivityUsersFragment extends ParentActFragment implements
 	private UserFragmentAdapter adpater;
 	private String actId;
 
-	public static ActivityUsersFragment newInstance(int tag) {
-		ActivityUsersFragment fragment = new ActivityUsersFragment();
-		Bundle b = new Bundle();
-		b.putInt("tag", tag);
-		fragment.setArguments(b);
-		return fragment;
+	public ActivityUsersFragment(String dId) {
+		this.dId = dId;
 	}
 
 	@Override

@@ -41,8 +41,8 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 	private List<CheckItem> ds = new ArrayList<CheckItem>();
 	private QuestionItemAdapter adapter = null;
 
-	public ActivityTypeOneFragment(String cId) {
-		this.cId = cId;
+	public ActivityTypeOneFragment(String dId) {
+		this.dId = dId;
 	}
 
 	@Override
@@ -112,18 +112,6 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 
 	}
 
-	@Override
-	public void onClick(View v) {
-		if (v.getId() == R.id.type_2_add) {
-			dialog.show();
-		} else if (v.getId() == R.id.question_btn) {
-			Toast.makeText(getActivity(), question_info.getText().toString(),
-					Toast.LENGTH_SHORT).show();
-			dialog.dismiss();
-			question_info.setText("");
-		}
-	}
-
 	private void loadData() {
 		for (int i = 0; i < 9; i++) {
 			CheckItem ci = new CheckItem();
@@ -157,10 +145,13 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 		}
 	}
 
+	private String editId;
+
 	@Override
 	public void edit(int index, String id) {
-		System.out.println("----------------------------edit");
-
+		editId = id;
+		question_info.setText(ds.get(index).getItemName());
+		dialog.show();
 	}
 
 	@Override
@@ -190,6 +181,24 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 			send_normal_request(url, map, rcb);
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void onClick(View v) {
+		if (v.getId() == R.id.type_2_add) {
+			dialog.show();
+		} else if (v.getId() == R.id.question_btn) {// 保存或者修改
+			Toast.makeText(getActivity(), question_info.getText().toString(),
+					Toast.LENGTH_SHORT).show();
+			dialog.dismiss();
+			String opt = question_info.getText().toString();
+			question_info.setText("");
+			editId = "";
+			if (editId != null && !"".equals(editId)) {// 修改
+			} else {// 新增
+
+			}
 		}
 	}
 }
