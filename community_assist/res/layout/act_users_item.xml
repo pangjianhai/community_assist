@@ -45,6 +45,6 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="9dp"
-        android:src="@drawable/btn_ok_selector" />
+        android:src="@drawable/look_user" />
 
 </RelativeLayout>

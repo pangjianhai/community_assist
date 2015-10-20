@@ -48,6 +48,7 @@ public class ActivityUsersFragment extends ParentActFragment implements
 				(ViewGroup) getActivity().findViewById(
 						R.id.act_fragment_parent_viewpager), false);
 		findView();
+		loadMoreData();
 	}
 
 	@Override
@@ -62,17 +63,16 @@ public class ActivityUsersFragment extends ParentActFragment implements
 	}
 
 	private void findView() {
-		System.out.println("0000000000:" + mMainView);
 		topic_post_lv = (XListView) mMainView.findViewById(R.id.space_lv);
 		topic_post_lv.setPullRefreshEnable(false);
-		topic_post_lv.setPullLoadEnable(false);
+		topic_post_lv.setPullLoadEnable(true);
 		topic_post_lv.setXListViewListener(this);
 		adpater = new UserFragmentAdapter(getActivity(), ds);
 		topic_post_lv.setAdapter(adpater);
-		System.out.println("over");
 	}
 
 	public void loadMoreData() {
+		loadDataT();
 		try {
 			JSONObject d = new JSONObject();
 			d.put("picId", actId);
@@ -119,5 +119,14 @@ public class ActivityUsersFragment extends ParentActFragment implements
 	public void onLoadMore() {
 		loadMoreData();
 
+	}
+
+	private void loadDataT() {
+		for (int i = 0; i < 9; i++) {
+			UserEntity ci = new UserEntity();
+			ci.setUserName("逄建海");
+			ds.add(ci);
+		}
+		adpater.notifyDataSetChanged();
 	}
 }
