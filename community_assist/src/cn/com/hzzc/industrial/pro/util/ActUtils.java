@@ -117,6 +117,10 @@ public class ActUtils {
 		if (data != null && !"".equals(data)) {
 			try {
 				JSONObject js = new JSONObject(data);
+				String ex = js.getString("questionItems");
+				if (ex == null || "".equals(ex) || "null".equals(ex)) {
+					return l;
+				}
 				JSONArray array = js.getJSONArray("questionItems");
 				if (array.length() > 0) {
 					for (int i = 0; i < array.length(); i++) {

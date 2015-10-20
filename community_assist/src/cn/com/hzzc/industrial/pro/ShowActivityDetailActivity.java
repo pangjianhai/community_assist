@@ -1,11 +1,7 @@
 package cn.com.hzzc.industrial.pro;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import org.json.JSONObject;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -14,13 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.view.Window;
-import cn.com.hzzc.industrial.pro.cons.SystemConst;
-import cn.com.hzzc.industrial.pro.entity.ActivityEntity;
 import cn.com.hzzc.industrial.pro.part.HomeFrameAdapter;
-
-import com.lidroid.xutils.exception.HttpException;
-import com.lidroid.xutils.http.ResponseInfo;
-import com.lidroid.xutils.http.callback.RequestCallBack;
 
 /**
  * @todo 添加具体活动
@@ -77,10 +67,6 @@ public class ShowActivityDetailActivity extends BaseFragmentActivity {
 	private void initParam() {
 		cId = getIntent().getStringExtra("cId");
 		dId = getIntent().getStringExtra("dId");
-		System.out.println("))))cId:" + cId);
-		System.out.println("))))dId:" + dId);
-		cId = "203c14601fd04272a9a5504552f13263";
-		dId = "c9bcee4dc54a4a4480b5503f7d98a6f6";
 	}
 
 	public class MyOnPageChangeListener implements OnPageChangeListener {

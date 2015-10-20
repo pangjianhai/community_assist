@@ -153,14 +153,12 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 		if (v.getId() == R.id.type_2_add) {
 			dialog.show();
 		} else if (v.getId() == R.id.question_btn) {// 保存或者修改
-			System.out.println("lcick");
 			Toast.makeText(getActivity(), question_info.getText().toString(),
 					Toast.LENGTH_SHORT).show();
 			dialog.dismiss();
 			String opt = question_info.getText().toString();
 			question_info.setText("");
 			if (editId != null && !"".equals(editId)) {// 修改
-				System.out.println("editId, opt：" + editId + opt);
 				realEdit(editId, opt);
 			} else {// 新增
 				realAdd(opt);
@@ -184,7 +182,7 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 				+ SystemConst.Type2Url.delQuestionItem;
 		try {
 			JSONObject d = new JSONObject();
-			d.put("Id", cId);
+			d.put("Id", id);
 			RequestCallBack<String> rcb = new RequestCallBack<String>() {
 
 				@Override
