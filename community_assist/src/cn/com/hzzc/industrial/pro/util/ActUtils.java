@@ -113,7 +113,6 @@ public class ActUtils {
 	 * @return:List<CheckItem>
 	 */
 	public static List<CheckItem> getQuestioinItems(String data) {
-		System.out.println("data::>" + data);
 		List<CheckItem> l = new ArrayList<CheckItem>();
 		if (data != null && !"".equals(data)) {
 			try {

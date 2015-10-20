@@ -119,6 +119,7 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 	 * @return:void
 	 */
 	private void loadData() {
+		ds.clear();
 		String url = SystemConst.server_url
 				+ SystemConst.Type2Url.queryQuestionItemByquestionId;
 		try {
@@ -158,12 +159,13 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 			dialog.dismiss();
 			String opt = question_info.getText().toString();
 			question_info.setText("");
-			editId = "";
 			if (editId != null && !"".equals(editId)) {// 修改
+				System.out.println("editId, opt：" + editId + opt);
 				realEdit(editId, opt);
 			} else {// 新增
 				realAdd(opt);
 			}
+			editId = "";
 		}
 	}
 
@@ -238,7 +240,6 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 	}
 
 	public void realAdd(String question) {
-		System.out.println("___realAdd");
 		String url = SystemConst.server_url
 				+ SystemConst.Type2Url.addQuestionItem;
 		try {
