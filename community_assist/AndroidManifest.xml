@@ -52,7 +52,11 @@
             android:label="@string/app_name" >
         </activity>
         <activity android:name="cn.com.hzzc.industrial.pro.HomeActivity" >
-            
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".TaskListLayoutActivity" >
         </activity>
@@ -69,11 +73,6 @@
         <activity android:name=".ShareSelectPicActivity" >
         </activity>
         <activity android:name=".ShowActivityDetailActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <!-- Required SDK核心功能 -->
         <activity
