@@ -40,4 +40,14 @@ public class ParentActActivity extends BaseActivity {
 	public void selectActImg(ArrayList<String> list) {
 
 	}
+
+	/**
+	 * @user:pang
+	 * @data:2015年10月20日
+	 * @todo:新增和编辑用到（操作成功之后的后续操作）
+	 * @return:void
+	 */
+	public void sendSuccess() {
+
+	}
 }
