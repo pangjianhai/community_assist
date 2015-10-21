@@ -277,11 +277,45 @@ public class ActivityTypeThreeFragment extends ParentActFragment implements
 
 	public void realEdit(String id, String question) {
 		String url = SystemConst.server_url
-				+ SystemConst.Type2Url.editQuestionItem;
+				+ SystemConst.Type3Url.editActivityStatisticItem;
+		String opt1 = stat_item_1.getText().toString();
+		String opt2 = stat_item_2.getText().toString();
+		String opt3 = stat_item_3.getText().toString();
+		String opt4 = stat_item_4.getText().toString();
+		String opt5 = stat_item_5.getText().toString();
 		try {
 			JSONObject d = new JSONObject();
 			d.put("Id", id);
-			d.put("question", question);
+			d.put("statisticId", dId);
+			d.put("content", question);
+			JSONArray array = new JSONArray();
+			if (opt1 != null && !"".equals(opt1)) {
+				JSONObject i = new JSONObject();
+				i.put("option", opt1);
+				array.put(i);
+			}
+
+			if (opt2 != null && !"".equals(opt2)) {
+				JSONObject i = new JSONObject();
+				i.put("option", opt2);
+				array.put(i);
+			}
+			if (opt3 != null && !"".equals(opt3)) {
+				JSONObject i = new JSONObject();
+				i.put("option", opt3);
+				array.put(i);
+			}
+			if (opt4 != null && !"".equals(opt4)) {
+				JSONObject i = new JSONObject();
+				i.put("option", opt4);
+				array.put(i);
+			}
+			if (opt5 != null && !"".equals(opt5)) {
+				JSONObject i = new JSONObject();
+				i.put("option", opt5);
+				array.put(i);
+			}
+			d.put("options", array);
 			RequestCallBack<String> rcb = new RequestCallBack<String>() {
 
 				@Override

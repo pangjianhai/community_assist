@@ -265,7 +265,7 @@ public class ActUtils {
 				if (ex == null || "".equals(ex) || "null".equals(ex)) {
 					return l;
 				}
-				JSONArray array = js.getJSONArray("activityStatisticItems");
+				JSONArray array = js.getJSONArray("options");
 				if (array.length() > 0) {
 					for (int i = 0; i < array.length(); i++) {
 						JSONObject j = array.getJSONObject(i);
