@@ -31,5 +31,7 @@ public interface SystemConst {
 		public static final String editQuestionItem = "commController/editQuestionItem.do";
 		public static final String delQuestionItem = "commController/delQuestionItem.do";
 		public static final String queryCommenActivityByIdForQuestionDetailIdByType = "commController/queryCommenActivityByIdForQuestionDetailIdByType.do";
+
+		public static final String queryCommenActivityBysocietyId = "commController/queryCommenActivityBysocietyId.do";
 	}
 }

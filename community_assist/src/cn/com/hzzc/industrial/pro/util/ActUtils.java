@@ -148,4 +148,59 @@ public class ActUtils {
 		return l;
 
 	}
+
+	/**
+	 * 
+	 * @param data
+	 * @return
+	 * @user:pang
+	 * @data:2015年10月21日
+	 * @todo:解析活动
+	 * @return:List<ActivityEntity>
+	 */
+	public static List<ActivityEntity> getActivities(String data) {
+		List<ActivityEntity> aes = new ArrayList<ActivityEntity>();
+		if (data != null && !"".equals(data)) {
+			try {
+				JSONObject js = new JSONObject(data);
+				String str = js.getString("commenActivitys");
+				if (str != null && !"".equals(str) && !"[]".equals(str)) {
+					JSONArray array = js.getJSONArray("commenActivitys");
+					for (int i = 0; i < array.length(); i++) {
+						JSONObject j = array.getJSONObject(i);
+						String id = j.getString("id");
+						String type = j.getString("type");
+						String status = j.getString("status");
+						String title = j.getString("title");
+						String createDate = j.getString("createDate");
+						String introduction = j.getString("introduction");
+						String ifNeedSelfSociety = j
+								.getString("ifNeedSelfSociety");
+						String imgId = j.getString("imgId");
+						String beginDate = j.getString("beginDate");
+						String endDate = j.getString("endDate");
+						String readNum = j.getString("readNum");
+						String societyId = j.getString("societyId");
+						ActivityEntity ae = new ActivityEntity();
+						ae.setId(id);
+						ae.setSocietyId(societyId);
+						ae.setBeginDate(beginDate);
+						ae.setEndDate(endDate);
+						ae.setCreateDate(createDate);
+						ae.setTitle(title);
+						ae.setStatus(status);
+						ae.setImgId(imgId);
+						ae.setReadNum(readNum);
+						ae.setIntroduction(introduction);
+						ae.setIfNeedSelfSociety("true"
+								.equals(ifNeedSelfSociety) ? true : false);
+						aes.add(ae);
+					}
+				}
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+		}
+		return aes;
+	}
 }

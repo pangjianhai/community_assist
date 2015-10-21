@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.json.JSONObject;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -16,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.Toast;
 import cn.com.hzzc.industrial.pro.adapter.ActivityItemAdapter;
+import cn.com.hzzc.industrial.pro.cons.SystemConst;
 import cn.com.hzzc.industrial.pro.entity.ActivityEntity;
 import cn.com.hzzc.industrial.pro.opsinterface.IActivityOperator;
 import cn.com.hzzc.industrial.pro.part.wipelist.SwipeMenu;
@@ -149,12 +152,40 @@ public class AllActivitiesActivity extends BaseActivity implements
 		});
 	}
 
+	/**
+	 * @user:pang
+	 * @data:2015年10月21日
+	 * @todo:异步获取社群下面的所有活动
+	 * @return:void
+	 */
 	private void loadDataMore() {
-		for (int i = 0; i < 10; i++) {
-			ActivityEntity act = new ActivityEntity();
-			act.setTitle("xxx" + i);
-			ds.add(act);
+
+		String url = SystemConst.server_url
+				+ SystemConst.Type2Url.queryCommenActivityBysocietyId;
+		try {
+			JSONObject d = new JSONObject();
+			d.put("societyId", "1");
+			RequestCallBack<String> rcb = new RequestCallBack<String>() {
+
+				@Override
+				public void onSuccess(ResponseInfo<String> responseInfo) {
+					String data = responseInfo.result;
+					List<ActivityEntity> lst = ActUtils.getActivities(data);
+					ds.addAll(lst);
+					actItemAdapter.notifyDataSetChanged();
+				}
+
+				@Override
+				public void onFailure(HttpException error, String msg) {
+				}
+			};
+			Map map = new HashMap();
+			map.put("para", d.toString());
+			send_normal_request(url, map, rcb);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+
 	}
 
 	private void loadDataMore2() {

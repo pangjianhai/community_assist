@@ -58,8 +58,10 @@ public class ActivityItemAdapter extends BaseAdapter {
 					.findViewById(R.id.act_photo);
 			holder.act_name = (TextView) convertview
 					.findViewById(R.id.act_name);
-			holder.act_desc = (TextView) convertview
-					.findViewById(R.id.act_desc);
+			holder.act_readNum = (TextView) convertview
+					.findViewById(R.id.act_readNum);
+			holder.act_endDate = (TextView) convertview
+					.findViewById(R.id.act_endDate);
 			convertview.setTag(holder);
 		} else {
 			holder = (HolderView) convertview.getTag();
@@ -73,11 +75,13 @@ public class ActivityItemAdapter extends BaseAdapter {
 
 			}
 		});
+		holder.act_readNum.setText("浏览人数：" + act.getReadNum());
+		holder.act_endDate.setText("截止日期：" + act.getEndDate());
 		return convertview;
 	}
 
 	private class HolderView {
-		private TextView act_name, act_desc;
+		private TextView act_name, act_readNum, act_endDate;
 
 		private ImageView act_photo;
 	}
