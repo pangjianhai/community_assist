@@ -30,7 +30,7 @@ import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 
-public class ActivityTypeOneFragment extends ParentActFragment implements
+public class ActivityTypeTowFragment extends ParentActFragment implements
 		OnClickListener, IQuestionItemOperator {
 
 	private Button type_2_add, question_btn;
@@ -41,7 +41,7 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 	private List<CheckItem> ds = new ArrayList<CheckItem>();
 	private QuestionItemAdapter adapter = null;
 
-	public ActivityTypeOneFragment(String dId) {
+	public ActivityTypeTowFragment(String dId) {
 		this.dId = dId;
 	}
 
@@ -50,7 +50,7 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 		super.onCreate(savedInstanceState);
 		LayoutInflater inflater = getActivity().getLayoutInflater();
 		mMainView = inflater.inflate(
-				R.layout.activity_type_one_fragment,
+				R.layout.activity_type_tow_fragment,
 				(ViewGroup) getActivity().findViewById(
 						R.id.act_fragment_parent_viewpager), false);
 		init();
@@ -106,7 +106,7 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 	private void initListView() {
 		item_lv = (ListView) mMainView.findViewById(R.id.item_lv);
 		adapter = new QuestionItemAdapter(getActivity(), ds,
-				ActivityTypeOneFragment.this);
+				ActivityTypeTowFragment.this);
 		item_lv.setAdapter(adapter);
 		loadData();
 

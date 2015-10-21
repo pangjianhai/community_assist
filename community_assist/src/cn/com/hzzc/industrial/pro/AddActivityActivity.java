@@ -266,12 +266,10 @@ public class AddActivityActivity extends ParentActActivity implements
 			return;
 		}
 		String cId = ActUtils.getActId(result);
-		String dId = ActUtils.getActDetailId(result);
 		Intent intent = new Intent();
 		intent.setClass(AddActivityActivity.this,
 				ShowActivityDetailActivity.class);
 		intent.putExtra("cId", cId);
-		intent.putExtra("dId", dId);
 		startActivity(intent);
 	}
 

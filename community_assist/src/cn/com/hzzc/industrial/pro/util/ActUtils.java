@@ -96,8 +96,12 @@ public class ActUtils {
 			ae.setReadNum(readNum);
 			ae.setIfNeedSelfSociety("true".equals(ifNeedSelfSociety) ? true
 					: false);
+			String dId = "";
+			if (js.has("detailId")) {
+				dId = js.getString("detailId");
+			}
+			ae.setDetailId(dId);
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return ae;

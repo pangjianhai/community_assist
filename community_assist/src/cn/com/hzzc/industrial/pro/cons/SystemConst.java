@@ -13,7 +13,7 @@ public interface SystemConst {
 	public static final String mobile_local_dir_for_pic = mobile_local_dir
 			+ "/PIC_COLLECTION";
 
-	public static final String server_url = "http://192.168.0.105:8080/IotApp/";
+	public static final String server_url = "http://192.168.0.103:8080/IotApp/";
 
 	/**
 	 * 

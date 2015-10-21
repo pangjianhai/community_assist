@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ import cn.com.hzzc.industrial.pro.part.wipelist.SwipeMenuItem;
 import cn.com.hzzc.industrial.pro.part.wipelist.SwipeMenuListView;
 import cn.com.hzzc.industrial.pro.part.wipelist.SwipeMenuListView.OnMenuItemClickListener;
 import cn.com.hzzc.industrial.pro.part.wipelist.SwipeMenuListView.OnSwipeListener;
+import cn.com.hzzc.industrial.pro.util.ActUtils;
 
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
@@ -195,7 +197,12 @@ public class AllActivitiesActivity extends BaseActivity implements
 	 * @return:void
 	 */
 	public void goInto(ActivityEntity item) {
-
+		String cId = item.getId();
+		Intent intent = new Intent();
+		intent.setClass(getApplicationContext(),
+				ShowActivityDetailActivity.class);
+		intent.putExtra("cId", cId);
+		startActivity(intent);
 	}
 
 	public void edit(ActivityEntity item) {
