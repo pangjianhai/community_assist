@@ -15,6 +15,7 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.view.Window;
 import cn.com.hzzc.industrial.pro.cons.SystemConst;
+import cn.com.hzzc.industrial.pro.cons.TypeConst;
 import cn.com.hzzc.industrial.pro.entity.ActivityEntity;
 import cn.com.hzzc.industrial.pro.part.HomeFrameAdapter;
 import cn.com.hzzc.industrial.pro.util.ActUtils;
@@ -55,7 +56,13 @@ public class ShowActivityDetailActivity extends BaseFragmentActivity {
 
 	private void initActivityDetail() {
 		Fragment sspace = new ActivityIntroductionFragment(cId);
-		Fragment tspace = new ActivityTypeTowFragment(dId);
+		Fragment tspace = null;
+		if (TypeConst.ActTypeConst.TYPE_ACTIVITY_QUESTION.equals(actType)) {
+			tspace = new ActivityTypeTowFragment(dId);
+		} else if (TypeConst.ActTypeConst.TYPE_ACTIVITY_STATICTICS
+				.equals(actType)) {
+			tspace = new ActivityTypeThreeFragment(dId);
+		}
 		Fragment uspace = new ActivityUsersFragment(dId);
 
 		lists.add(sspace);

@@ -31,11 +31,11 @@ import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 
 /**
- * @todo 调查问卷
+ * @todo 统计问卷
  * @author pang
  *
  */
-public class ActivityTypeTowFragment extends ParentActFragment implements
+public class ActivityTypeThreeFragment extends ParentActFragment implements
 		OnClickListener, IQuestionItemOperator {
 
 	private Button type_2_add, question_btn;
@@ -46,7 +46,7 @@ public class ActivityTypeTowFragment extends ParentActFragment implements
 	private List<CheckItem> ds = new ArrayList<CheckItem>();
 	private QuestionItemAdapter adapter = null;
 
-	public ActivityTypeTowFragment(String dId) {
+	public ActivityTypeThreeFragment(String dId) {
 		this.dId = dId;
 	}
 
@@ -55,7 +55,7 @@ public class ActivityTypeTowFragment extends ParentActFragment implements
 		super.onCreate(savedInstanceState);
 		LayoutInflater inflater = getActivity().getLayoutInflater();
 		mMainView = inflater.inflate(
-				R.layout.activity_type_tow_fragment,
+				R.layout.activity_type_three_fragment,
 				(ViewGroup) getActivity().findViewById(
 						R.id.act_fragment_parent_viewpager), false);
 		init();
@@ -111,7 +111,7 @@ public class ActivityTypeTowFragment extends ParentActFragment implements
 	private void initListView() {
 		item_lv = (ListView) mMainView.findViewById(R.id.item_lv);
 		adapter = new QuestionItemAdapter(getActivity(), ds,
-				ActivityTypeTowFragment.this);
+				ActivityTypeThreeFragment.this);
 		item_lv.setAdapter(adapter);
 		loadData();
 
