@@ -58,7 +58,7 @@ public class ShowActivityDetailActivity extends BaseFragmentActivity {
 		Fragment tspace = null;
 		System.out.println("actType:"+actType);
 		if (TypeConst.ActTypeConst.TYPE_ACTIVITY_QUESTION.equals(actType)) {
-			tspace = new ActivityTypeThreeFragment(dId);
+			tspace = new ActivityTypeTowFragment(dId);
 		} else if (TypeConst.ActTypeConst.TYPE_ACTIVITY_STATICTICS
 				.equals(actType)) {
 			tspace = new ActivityTypeThreeFragment(dId);

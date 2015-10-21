@@ -5,18 +5,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -251,7 +249,7 @@ public class ActivityTypeThreeFragment extends ParentActFragment implements
 
 	public void realAdd(String question) {
 		String url = SystemConst.server_url
-				+ SystemConst.Type2Url.addQuestionItem;
+				+ SystemConst.Type3Url.addActivityStatisticItem;
 		String opt1 = stat_item_1.getText().toString();
 		String opt2 = stat_item_2.getText().toString();
 		String opt3 = stat_item_3.getText().toString();
@@ -259,8 +257,36 @@ public class ActivityTypeThreeFragment extends ParentActFragment implements
 		String opt5 = stat_item_5.getText().toString();
 		try {
 			JSONObject d = new JSONObject();
-			d.put("questionId", dId);
-			d.put("question", question);
+			d.put("statisticId", dId);
+			d.put("content", question);
+			JSONArray array = new JSONArray();
+			if (opt1 != null && !"".equals(opt1)) {
+				JSONObject i = new JSONObject();
+				i.put("option", opt1);
+				array.put(i);
+			}
+
+			if (opt2 != null && !"".equals(opt2)) {
+				JSONObject i = new JSONObject();
+				i.put("option", opt2);
+				array.put(i);
+			}
+			if (opt3 != null && !"".equals(opt3)) {
+				JSONObject i = new JSONObject();
+				i.put("option", opt3);
+				array.put(i);
+			}
+			if (opt4 != null && !"".equals(opt4)) {
+				JSONObject i = new JSONObject();
+				i.put("option", opt4);
+				array.put(i);
+			}
+			if (opt5 != null && !"".equals(opt5)) {
+				JSONObject i = new JSONObject();
+				i.put("option", opt5);
+				array.put(i);
+			}
+			d.put("options", array);
 			RequestCallBack<String> rcb = new RequestCallBack<String>() {
 
 				@Override
