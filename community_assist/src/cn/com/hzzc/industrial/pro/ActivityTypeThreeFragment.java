@@ -22,6 +22,7 @@ import android.widget.Toast;
 import cn.com.hzzc.industrial.pro.adapter.QuestionItemAdapter;
 import cn.com.hzzc.industrial.pro.cons.SystemConst;
 import cn.com.hzzc.industrial.pro.entity.CheckItem;
+import cn.com.hzzc.industrial.pro.entity.ItemOption;
 import cn.com.hzzc.industrial.pro.opsinterface.IQuestionItemOperator;
 import cn.com.hzzc.industrial.pro.util.ActUtils;
 
@@ -183,14 +184,70 @@ public class ActivityTypeThreeFragment extends ParentActFragment implements
 		stat_item_3.setText("");
 		stat_item_4.setText("");
 		stat_item_5.setText("");
-		dialog.show();
+		getOptionByItemId(editId);
 	}
 
+	/**
+	 * 
+	 * @param editId
+	 * @user:pang
+	 * @data:2015年10月21日
+	 * @todo:编辑之前根据itemID获取所有的option
+	 * @return:void
+	 */
+	private void getOptionByItemId(String id) {
+		String url = SystemConst.server_url
+				+ SystemConst.Type3Url.queryActivityStatisticItemOptionByStatisticItemId;
+		try {
+			JSONObject d = new JSONObject();
+			d.put("statisticItemId", id);
+			RequestCallBack<String> rcb = new RequestCallBack<String>() {
+
+				@Override
+				public void onSuccess(ResponseInfo<String> responseInfo) {
+					String data = responseInfo.result;
+					List<ItemOption> lst = ActUtils.getStatItemOptions(data);
+					if (lst != null && !lst.isEmpty()) {
+						for (int i = 0; i < lst.size(); i++) {
+							ItemOption io = lst.get(i);
+							String option = io.getOption();
+							if (i == 0) {
+								stat_item_1.setText(option);
+							} else if (i == 1) {
+								stat_item_2.setText(option);
+							} else if (i == 2) {
+								stat_item_3.setText(option);
+							} else if (i == 3) {
+								stat_item_4.setText(option);
+							} else if (i == 4) {
+								stat_item_5.setText(option);
+							}
+						}
+					}
+					dialog.show();
+				}
+
+				@Override
+				public void onFailure(HttpException error, String msg) {
+					Toast.makeText(getActivity(), "删除失败请重试", Toast.LENGTH_SHORT)
+							.show();
+				}
+			};
+			Map map = new HashMap();
+			map.put("para", d.toString());
+			send_normal_request(url, map, rcb);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * 删除
+	 */
 	@Override
 	public void del(final int index, String id) {
 		String url = SystemConst.server_url
 				+ SystemConst.Type3Url.delActivityStatisticItemAndOptions;
-		System.out.println("*************Del:"+url);
 		try {
 			JSONObject d = new JSONObject();
 			d.put("Id", id);

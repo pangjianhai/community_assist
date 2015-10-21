@@ -9,6 +9,7 @@ import org.json.JSONObject;
 
 import cn.com.hzzc.industrial.pro.entity.ActivityEntity;
 import cn.com.hzzc.industrial.pro.entity.CheckItem;
+import cn.com.hzzc.industrial.pro.entity.ItemOption;
 
 /**
  * @todo 活动工具类
@@ -244,5 +245,49 @@ public class ActUtils {
 			}
 		}
 		return aes;
+	}
+
+	/**
+	 * 
+	 * @param data
+	 * @return
+	 * @user:pang
+	 * @data:2015年10月21日
+	 * @todo:解析选项option
+	 * @return:List<ItemOption>
+	 */
+	public static List<ItemOption> getStatItemOptions(String data) {
+		List<ItemOption> l = new ArrayList<ItemOption>();
+		if (data != null && !"".equals(data)) {
+			try {
+				JSONObject js = new JSONObject(data);
+				String ex = js.getString("options");
+				if (ex == null || "".equals(ex) || "null".equals(ex)) {
+					return l;
+				}
+				JSONArray array = js.getJSONArray("activityStatisticItems");
+				if (array.length() > 0) {
+					for (int i = 0; i < array.length(); i++) {
+						JSONObject j = array.getJSONObject(i);
+						String id = j.getString("id");
+						String statisticItemId = j.getString("statisticItemId");
+						String option = j.getString("option");
+						int num = j.getInt("num");
+
+						ItemOption io = new ItemOption();
+						io.setId(id);
+						io.setStatisticItemId(statisticItemId);
+						io.setNum(num);
+						io.setOption(option);
+						l.add(io);
+					}
+				}
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return l;
+
 	}
 }
