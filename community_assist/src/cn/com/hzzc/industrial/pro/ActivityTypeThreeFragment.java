@@ -40,7 +40,8 @@ public class ActivityTypeThreeFragment extends ParentActFragment implements
 		OnClickListener, IQuestionItemOperator {
 
 	private Button type_2_add, question_btn;
-	private EditText question_info;
+	private EditText stat_info, stat_item_1, stat_item_2, stat_item_3,
+			stat_item_4, stat_item_5;
 	Dialog dialog;
 
 	private ListView item_lv;
@@ -94,7 +95,12 @@ public class ActivityTypeThreeFragment extends ParentActFragment implements
 
 		question_btn = (Button) diaView.findViewById(R.id.question_btn);
 		question_btn.setOnClickListener(this);
-		question_info = (EditText) diaView.findViewById(R.id.question_info);
+		stat_info = (EditText) diaView.findViewById(R.id.stat_info);
+		stat_item_1 = (EditText) diaView.findViewById(R.id.stat_item_1);
+		stat_item_2 = (EditText) diaView.findViewById(R.id.stat_item_2);
+		stat_item_3 = (EditText) diaView.findViewById(R.id.stat_item_3);
+		stat_item_4 = (EditText) diaView.findViewById(R.id.stat_item_4);
+		stat_item_5 = (EditText) diaView.findViewById(R.id.stat_item_5);
 
 	}
 
@@ -154,11 +160,11 @@ public class ActivityTypeThreeFragment extends ParentActFragment implements
 		if (v.getId() == R.id.type_2_add) {
 			dialog.show();
 		} else if (v.getId() == R.id.question_btn) {// 保存或者修改
-			Toast.makeText(getActivity(), question_info.getText().toString(),
+			Toast.makeText(getActivity(), stat_info.getText().toString(),
 					Toast.LENGTH_SHORT).show();
 			dialog.dismiss();
-			String opt = question_info.getText().toString();
-			question_info.setText("");
+			String opt = stat_info.getText().toString();
+			stat_info.setText("");
 			if (editId != null && !"".equals(editId)) {// 修改
 				realEdit(editId, opt);
 			} else {// 新增
@@ -173,7 +179,12 @@ public class ActivityTypeThreeFragment extends ParentActFragment implements
 	@Override
 	public void edit(int index, String id) {
 		editId = id;
-		question_info.setText(ds.get(index).getItemName());
+		stat_info.setText(ds.get(index).getItemName());
+		stat_item_1.setText("");
+		stat_item_2.setText("");
+		stat_item_3.setText("");
+		stat_item_4.setText("");
+		stat_item_5.setText("");
 		dialog.show();
 	}
 
@@ -241,6 +252,11 @@ public class ActivityTypeThreeFragment extends ParentActFragment implements
 	public void realAdd(String question) {
 		String url = SystemConst.server_url
 				+ SystemConst.Type2Url.addQuestionItem;
+		String opt1 = stat_item_1.getText().toString();
+		String opt2 = stat_item_2.getText().toString();
+		String opt3 = stat_item_3.getText().toString();
+		String opt4 = stat_item_4.getText().toString();
+		String opt5 = stat_item_5.getText().toString();
 		try {
 			JSONObject d = new JSONObject();
 			d.put("questionId", dId);
