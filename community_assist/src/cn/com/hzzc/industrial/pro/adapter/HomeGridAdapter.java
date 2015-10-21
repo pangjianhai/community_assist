@@ -63,7 +63,6 @@ public class HomeGridAdapter extends BaseAdapter {
 
 			@Override
 			public void onClick(View v) {
-				System.out.println("------------------>@@@:" + hi.getContent());
 				ops.click(position);
 			}
 		});

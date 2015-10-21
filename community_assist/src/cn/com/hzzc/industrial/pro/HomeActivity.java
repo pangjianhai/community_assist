@@ -35,31 +35,16 @@ public class HomeActivity extends BaseActivity implements OnClickListener,
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.community_home);
-		init();
 		initGridView();
-	}
-
-	private void init() {
-		home_activities = (Button) findViewById(R.id.home_activities);
-		home_activities.setOnClickListener(this);
-		home_add_activity = (Button) findViewById(R.id.home_add_activity);
-		home_add_activity.setOnClickListener(this);
 	}
 
 	@Override
 	public void onClick(View v) {
-		if (v.getId() == R.id.home_activities) {
-			listActivity();
-		}
-		if (v.getId() == R.id.home_add_activity) {
-			createAct();
-		}
 	}
 
 	private void initGridView() {
 		buildHome();
 		home_gridview = (GridView) findViewById(R.id.home_gridview);
-		System.out.println("0000000000:" + home_gridview);
 		adapter = new HomeGridAdapter(HomeActivity.this, HomeActivity.this, ds);
 		home_gridview.setAdapter(adapter);
 
@@ -71,8 +56,10 @@ public class HomeActivity extends BaseActivity implements OnClickListener,
 		HomeItem hi1 = new HomeItem();
 		hi1.setContent("趋势查询");
 		HomeItem hi2 = new HomeItem();
+		hi2.setFlag(HomeItem.add_act);
 		hi2.setContent("新增活动");
 		HomeItem hi3 = new HomeItem();
+		hi3.setFlag(HomeItem.all_act);
 		hi3.setContent("所有活动");
 		ds.add(hi0);
 		ds.add(hi1);
@@ -100,8 +87,13 @@ public class HomeActivity extends BaseActivity implements OnClickListener,
 
 	@Override
 	public void click(int index) {
-		// TODO Auto-generated method stub
-
+		HomeItem hi = ds.get(index);
+		String flag = hi.getFlag();
+		if (HomeItem.add_act.equals(flag)) {
+			createAct();
+		} else if (HomeItem.all_act.equals(flag)) {
+			listActivity();
+		}
 	}
 
 }

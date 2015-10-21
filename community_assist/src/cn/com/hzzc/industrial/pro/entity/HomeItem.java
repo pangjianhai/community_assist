@@ -7,6 +7,8 @@ package cn.com.hzzc.industrial.pro.entity;
  */
 public class HomeItem {
 
+	public static String add_act = "0";
+	public static String all_act = "1";
 	// 类型标记
 	private String flag;
 	// 展示内容
