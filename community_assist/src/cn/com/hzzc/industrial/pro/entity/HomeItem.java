@@ -9,6 +9,8 @@ public class HomeItem {
 
 	public static String add_act = "0";
 	public static String all_act = "1";
+	public static String add_topic = "2";
+	public static String all_topic = "3";
 	// 类型标记
 	private String flag;
 	// 展示内容

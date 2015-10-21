@@ -3,6 +3,7 @@ package cn.com.hzzc.industrial.pro.adapter;
 import java.util.List;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -49,6 +50,7 @@ public class HomeGridAdapter extends BaseAdapter {
 	public View getView(final int position, View convertview, ViewGroup parent) {
 		holder = new HolderView();
 		final HomeItem hi = ls.get(position);
+		String flag = hi.getFlag();
 		if (convertview == null) {
 			convertview = View.inflate(cx, R.layout.home_item, null);
 			holder.home_item_name = (TextView) convertview
@@ -57,8 +59,18 @@ public class HomeGridAdapter extends BaseAdapter {
 		} else {
 			holder = (HolderView) convertview.getTag();
 		}
-
+		int green_color = Color.parseColor("#00DB00");
+		int orange_color = Color.parseColor("#FFA500");
+		int fen_color = Color.parseColor("#E9408F");
 		holder.home_item_name.setText(hi.getContent());
+		if (HomeItem.all_act.equals(flag) || HomeItem.all_topic.equals(flag)) {
+			holder.home_item_name.setTextColor(orange_color);
+		} else if (HomeItem.add_act.equals(flag)
+				|| HomeItem.add_topic.equals(flag)) {
+			holder.home_item_name.setTextColor(fen_color);
+		} else {
+			holder.home_item_name.setTextColor(green_color);
+		}
 		holder.home_item_name.setOnClickListener(new OnClickListener() {
 
 			@Override

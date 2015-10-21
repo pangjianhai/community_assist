@@ -8,8 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.GridView;
 import cn.com.hzzc.industrial.pro.adapter.HomeGridAdapter;
@@ -57,14 +55,24 @@ public class HomeActivity extends BaseActivity implements OnClickListener,
 		hi1.setContent("趋势查询");
 		HomeItem hi2 = new HomeItem();
 		hi2.setFlag(HomeItem.add_act);
-		hi2.setContent("新增活动");
+		hi2.setContent("发布活动");
 		HomeItem hi3 = new HomeItem();
 		hi3.setFlag(HomeItem.all_act);
-		hi3.setContent("所有活动");
+		hi3.setContent("社群活动");
+
+		HomeItem hi4 = new HomeItem();
+		hi4.setFlag(HomeItem.add_topic);
+		hi4.setContent("创建话题");
+		HomeItem hi5 = new HomeItem();
+		hi5.setFlag(HomeItem.all_topic);
+		hi5.setContent("社群话题");
 		ds.add(hi0);
 		ds.add(hi1);
-		ds.add(hi2);
 		ds.add(hi3);
+		ds.add(hi5);
+		ds.add(hi2);
+		ds.add(hi4);
+
 	}
 
 	/**
