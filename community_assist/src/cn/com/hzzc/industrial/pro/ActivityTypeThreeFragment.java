@@ -126,16 +126,16 @@ public class ActivityTypeThreeFragment extends ParentActFragment implements
 	private void loadData() {
 		ds.clear();
 		String url = SystemConst.server_url
-				+ SystemConst.Type2Url.queryQuestionItemByquestionId;
+				+ SystemConst.Type3Url.queryActivityStatisticItemByStatisticId;
 		try {
 			JSONObject d = new JSONObject();
-			d.put("questionId", dId);
+			d.put("statisticId", dId);
 			RequestCallBack<String> rcb = new RequestCallBack<String>() {
 
 				@Override
 				public void onSuccess(ResponseInfo<String> responseInfo) {
 					String data = responseInfo.result;
-					List<CheckItem> lst = ActUtils.getQuestioinItems(data);
+					List<CheckItem> lst = ActUtils.getStatItems(data);
 					ds.addAll(lst);
 					adapter.notifyDataSetChanged();
 				}

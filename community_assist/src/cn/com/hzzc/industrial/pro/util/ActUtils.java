@@ -154,6 +154,48 @@ public class ActUtils {
 	 * @param data
 	 * @return
 	 * @user:pang
+	 * @data:2015年10月20日
+	 * @todo:获取统计问卷所有问题
+	 * @return:List<CheckItem>
+	 */
+	public static List<CheckItem> getStatItems(String data) {
+		List<CheckItem> l = new ArrayList<CheckItem>();
+		if (data != null && !"".equals(data)) {
+			try {
+				JSONObject js = new JSONObject(data);
+				String ex = js.getString("activityStatisticItems");
+				if (ex == null || "".equals(ex) || "null".equals(ex)) {
+					return l;
+				}
+				JSONArray array = js.getJSONArray("activityStatisticItems");
+				if (array.length() > 0) {
+					for (int i = 0; i < array.length(); i++) {
+						JSONObject j = array.getJSONObject(i);
+						String Id = j.getString("id");
+						String statisticId = j.getString("statisticId");
+						String content = j.getString("content");
+
+						CheckItem ci = new CheckItem();
+						ci.setId(Id);
+						ci.setItemName(content);
+						ci.setActDetailId(statisticId);
+						l.add(ci);
+					}
+				}
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return l;
+
+	}
+
+	/**
+	 * 
+	 * @param data
+	 * @return
+	 * @user:pang
 	 * @data:2015年10月21日
 	 * @todo:解析活动
 	 * @return:List<ActivityEntity>

@@ -36,6 +36,13 @@ public interface SystemConst {
 	}
 
 	public class Type3Url {
+		/**
+		 * 添加统计条目
+		 */
 		public static final String addActivityStatisticItem = "commController/addActivityStatisticItem.do";
+		/**
+		 * 根据统计ID获取统计项目
+		 */
+		public static final String queryActivityStatisticItemByStatisticId = "commController/queryActivityStatisticItemByStatisticId.do";
 	}
 }
