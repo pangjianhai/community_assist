@@ -44,5 +44,10 @@ public interface SystemConst {
 		 * 根据统计ID获取统计项目
 		 */
 		public static final String queryActivityStatisticItemByStatisticId = "commController/queryActivityStatisticItemByStatisticId.do";
+
+		/**
+		 * 修改统计项目
+		 */
+		public static final String delActivityStatisticItemAndOptions = "commController/delActivityStatisticItemAndOptions.do";
 	}
 }

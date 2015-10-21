@@ -189,7 +189,8 @@ public class ActivityTypeThreeFragment extends ParentActFragment implements
 	@Override
 	public void del(final int index, String id) {
 		String url = SystemConst.server_url
-				+ SystemConst.Type2Url.delQuestionItem;
+				+ SystemConst.Type3Url.delActivityStatisticItemAndOptions;
+		System.out.println("*************Del:"+url);
 		try {
 			JSONObject d = new JSONObject();
 			d.put("Id", id);
