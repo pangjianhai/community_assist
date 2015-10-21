@@ -36,6 +36,7 @@ public class HomeActivity extends BaseActivity implements OnClickListener,
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.community_home);
 		init();
+		initGridView();
 	}
 
 	private void init() {
@@ -56,19 +57,27 @@ public class HomeActivity extends BaseActivity implements OnClickListener,
 	}
 
 	private void initGridView() {
+		buildHome();
 		home_gridview = (GridView) findViewById(R.id.home_gridview);
-		adapter = new HomeGridAdapter(ds, HomeActivity.this);
+		System.out.println("0000000000:" + home_gridview);
+		adapter = new HomeGridAdapter(HomeActivity.this, HomeActivity.this, ds);
 		home_gridview.setAdapter(adapter);
 
-		/**
-		 * 如果是第一张则是打开照相机
-		 */
-		home_gridview.setOnItemClickListener(new OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
-			}
-		});
+	}
+
+	private void buildHome() {
+		HomeItem hi0 = new HomeItem();
+		hi0.setContent("社群人数/90");
+		HomeItem hi1 = new HomeItem();
+		hi1.setContent("趋势查询");
+		HomeItem hi2 = new HomeItem();
+		hi2.setContent("新增活动");
+		HomeItem hi3 = new HomeItem();
+		hi3.setContent("所有活动");
+		ds.add(hi0);
+		ds.add(hi1);
+		ds.add(hi2);
+		ds.add(hi3);
 	}
 
 	/**

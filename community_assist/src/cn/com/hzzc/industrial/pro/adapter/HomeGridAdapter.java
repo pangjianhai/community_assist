@@ -4,11 +4,11 @@ import java.util.List;
 
 import android.content.Context;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 import cn.com.hzzc.industrial.pro.R;
 import cn.com.hzzc.industrial.pro.entity.HomeItem;
@@ -20,17 +20,12 @@ public class HomeGridAdapter extends BaseAdapter {
 	private List<HomeItem> ls = null;
 	private HolderView holder;
 
-	public HomeGridAdapter(List<HomeItem> ls, IHomeItemOps ops) {
+	public HomeGridAdapter(Context cx, IHomeItemOps ops, List<HomeItem> ls) {
 		super();
-		this.ls = ls;
+		this.cx = cx;
 		this.ops = ops;
+		this.ls = ls;
 	}
-
-	/**
-	 * 参数
-	 */
-	LayoutParams params = new AbsListView.LayoutParams(
-			AbsListView.LayoutParams.WRAP_CONTENT, 300);
 
 	@Override
 	public int getCount() {
@@ -51,21 +46,32 @@ public class HomeGridAdapter extends BaseAdapter {
 	 * 显然图片
 	 */
 	@Override
-	public View getView(int position, View convertview, ViewGroup parent) {
+	public View getView(final int position, View convertview, ViewGroup parent) {
 		holder = new HolderView();
+		final HomeItem hi = ls.get(position);
 		if (convertview == null) {
 			convertview = View.inflate(cx, R.layout.home_item, null);
-			holder.question_item_name = (TextView) convertview
-					.findViewById(R.id.question_item_name);
+			holder.home_item_name = (TextView) convertview
+					.findViewById(R.id.home_item_name);
 			convertview.setTag(holder);
 		} else {
 			holder = (HolderView) convertview.getTag();
 		}
+
+		holder.home_item_name.setText(hi.getContent());
+		holder.home_item_name.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				System.out.println("------------------>@@@:" + hi.getContent());
+				ops.click(position);
+			}
+		});
 		return convertview;
 	}
 
 	private class HolderView {
-		private TextView question_item_name;
+		private TextView home_item_name;
 
 	}
 }
