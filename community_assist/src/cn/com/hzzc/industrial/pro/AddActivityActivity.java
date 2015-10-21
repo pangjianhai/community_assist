@@ -29,6 +29,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 import cn.com.hzzc.industrial.pro.cons.SystemConst;
+import cn.com.hzzc.industrial.pro.cons.TypeConst;
 import cn.com.hzzc.industrial.pro.task.UploadFileTask;
 import cn.com.hzzc.industrial.pro.util.ActUtils;
 import cn.com.hzzc.industrial.pro.util.CommonDateUtil;
@@ -106,11 +107,11 @@ public class AddActivityActivity extends ParentActActivity implements
 					int arg2, long arg3) {
 				String proType = typesAd.getItem(arg2);
 				if ("线下活动".equals(proType)) {
-					type = "0";
+					type = TypeConst.ActTypeConst.TYPE_ACTIVITY_OFFLINE;
 				} else if ("调查活动".equals(proType)) {
-					type = "1";
+					type = TypeConst.ActTypeConst.TYPE_ACTIVITY_QUESTION;
 				} else if ("统计活动".equals(proType)) {
-					type = "2";
+					type = TypeConst.ActTypeConst.TYPE_ACTIVITY_STATICTICS;
 				}
 			}
 
@@ -259,7 +260,6 @@ public class AddActivityActivity extends ParentActActivity implements
 	 */
 	@Override
 	public void sendSuccess(String result) {
-		System.out.println("+++++++++++++++++--------result:"+result);
 		if (result.equals(FileUploadUtil.FAILURE)) {
 			Toast.makeText(getApplicationContext(), "保存失败请重试!",
 					Toast.LENGTH_SHORT).show();

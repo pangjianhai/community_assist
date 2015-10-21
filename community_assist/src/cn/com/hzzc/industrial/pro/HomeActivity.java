@@ -33,7 +33,6 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		System.out.println("__v.getId():" + v.getId());
 		if (v.getId() == R.id.home_activities) {
 			listActivity();
 		}

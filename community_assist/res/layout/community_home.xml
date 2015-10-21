@@ -30,6 +30,7 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_below="@+id/login_passwd_edit"
         android:layout_marginTop="20dp" >
 
@@ -55,7 +56,7 @@
             android:layout_below="@+id/home_activities"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/btn_ok_selector"
             android:onClick="loginHealthApp"
             android:text="创建活动"
