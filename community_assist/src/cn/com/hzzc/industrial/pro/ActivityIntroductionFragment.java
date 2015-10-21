@@ -18,6 +18,7 @@ import cn.com.hzzc.industrial.pro.util.ActUtils;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class ActivityIntroductionFragment extends ParentActFragment {
 
@@ -107,7 +108,16 @@ public class ActivityIntroductionFragment extends ParentActFragment {
 			add_act_self.setImageResource(R.drawable.table_off);
 		}
 		String imgId = entity.getImgId();
-
+		if (imgId != null && !"".equals(imgId)) {
+			String pic_url = SystemConst.server_url
+					+ SystemConst.Type2Url.getImgByImgId + "?para={imgId:"
+					+ imgId + "}";
+			ImageLoader.getInstance().displayImage(pic_url, add_act_img,
+					GloableApplication.getDisplayImageOption());
+		} else {
+			String imageUri = "drawable://" + R.drawable.visitor_me_cover;
+			ImageLoader.getInstance().displayImage(imageUri, add_act_img);
+		}
 	}
 
 	/**

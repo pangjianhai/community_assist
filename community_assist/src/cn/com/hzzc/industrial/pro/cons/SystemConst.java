@@ -33,6 +33,11 @@ public interface SystemConst {
 		public static final String queryCommenActivityByIdForQuestionDetailIdByType = "commController/queryCommenActivityByIdForQuestionDetailIdByType.do";
 
 		public static final String queryCommenActivityBysocietyId = "commController/queryCommenActivityBysocietyId.do";
+
+		/**
+		 * 获取活动的背景图片
+		 */
+		public static final String getImgByImgId = "commController/getImgByImgId.do";
 	}
 
 	public class Type3Url {

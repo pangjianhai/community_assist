@@ -70,9 +70,11 @@ public class ActivityItemAdapter extends BaseAdapter {
 			holder = (HolderView) convertview.getTag();
 		}
 
-		String imgId = "";// act.getImgId();
+		String imgId = act.getImgId();
 		if (imgId != null && !"".equals(imgId)) {
-			String pic_url = "";
+			String pic_url = SystemConst.server_url
+					+ SystemConst.Type2Url.getImgByImgId + "?para={imgId:"
+					+ imgId + "}";
 			ImageLoader.getInstance().displayImage(pic_url, holder.act_photo,
 					GloableApplication.getDisplayImageOption());
 		} else {

@@ -131,6 +131,7 @@ public class GloableApplication extends Application {
 				.imageScaleType(ImageScaleType.IN_SAMPLE_POWER_OF_2)
 				// 设置图片以如何的编码方式显示、
 				.imageScaleType(ImageScaleType.IN_SAMPLE_INT)
+				.showImageOnFail(R.drawable.visitor_me_cover)
 				.bitmapConfig(Bitmap.Config.RGB_565)
 				// default 设置图片的解码类型
 				// .displayer(new RoundedBitmapDisplayer(5)) // 设置成圆角图片
