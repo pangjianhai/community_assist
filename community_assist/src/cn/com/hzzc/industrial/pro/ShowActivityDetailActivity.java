@@ -51,14 +51,14 @@ public class ShowActivityDetailActivity extends BaseFragmentActivity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.show_activity_detail);
 		initParam();
-		initActivityDetail();
 	}
 
 	private void initActivityDetail() {
 		Fragment sspace = new ActivityIntroductionFragment(cId);
 		Fragment tspace = null;
+		System.out.println("actType:"+actType);
 		if (TypeConst.ActTypeConst.TYPE_ACTIVITY_QUESTION.equals(actType)) {
-			tspace = new ActivityTypeTowFragment(dId);
+			tspace = new ActivityTypeThreeFragment(dId);
 		} else if (TypeConst.ActTypeConst.TYPE_ACTIVITY_STATICTICS
 				.equals(actType)) {
 			tspace = new ActivityTypeThreeFragment(dId);

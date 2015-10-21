@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="600dp"
-    android:layout_height="400dp"
+    android:layout_height="600dp"
     android:orientation="vertical"
+    android:background="@color/white"
     android:padding="2dip" >
 
     <LinearLayout
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:orientation="horizontal" >
 
         <TextView
             android:layout_width="wrap_content"
@@ -17,14 +18,28 @@
             android:text="问卷问题："
             android:textColor="@color/orange"
             android:textSize="20sp" />
+    </LinearLayout>
 
-        <EditText
-            android:id="@+id/question_info"
-            android:layout_width="fill_parent"
+    <EditText
+        android:id="@+id/stat_info"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="..."
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="..."
-            android:textColor="@color/black"
-            android:textSize="14sp" />
+            android:singleLine="true"
+            android:text="最多5个选项："
+            android:textColor="@color/orange"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -32,21 +47,45 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
-        <TextView
+        <EditText
+            android:id="@+id/stat_item_1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:text="调查的选项:"
-            android:textColor="@color/orange"
-            android:textSize="20sp" />
+            android:hint="选项1..."
+            android:textColor="@color/black"
+            android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/question_item"
+            android:id="@+id/stat_item_2"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="多个选项用逗号：,隔开"
+            android:hint="选项2..."
             android:textColor="@color/black"
-            android:textSize="14sp" />
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/stat_item_3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="选项3..."
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/stat_item_4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="选项4..."
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/stat_item_5"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="选项5..."
+            android:textColor="@color/black"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <RelativeLayout

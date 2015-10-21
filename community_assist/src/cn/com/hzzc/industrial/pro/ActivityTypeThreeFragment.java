@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.json.JSONObject;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -46,6 +47,8 @@ public class ActivityTypeThreeFragment extends ParentActFragment implements
 	private List<CheckItem> ds = new ArrayList<CheckItem>();
 	private QuestionItemAdapter adapter = null;
 
+	View diaView;
+
 	public ActivityTypeThreeFragment(String dId) {
 		this.dId = dId;
 	}
@@ -84,18 +87,11 @@ public class ActivityTypeThreeFragment extends ParentActFragment implements
 		type_2_add = (Button) mMainView.findViewById(R.id.type_2_add);
 		type_2_add.setOnClickListener(this);
 		// 获取对话框
-		View diaView = View.inflate(getActivity(),
-				R.layout.act_question_dialog, null);
-		dialog = new Dialog(getActivity(), R.style.question_dialog);
-		dialog.setContentView(diaView);
-		Window dialogWindow = dialog.getWindow();
-		WindowManager.LayoutParams lp = dialogWindow.getAttributes();
-		dialogWindow.setGravity(Gravity.CENTER);
-		lp.width = 600; // 宽度
-		lp.height = 500; // 高度
-		lp.alpha = 0.7f; // 透明度
-		dialogWindow.setAttributes(lp);
-		dialog.getWindow().setAttributes(lp);
+		diaView = View.inflate(getActivity(), R.layout.act_statistics_dialog,
+				null);
+		dialog = new AlertDialog.Builder(getActivity()).setView(diaView)
+				.create();
+
 		question_btn = (Button) diaView.findViewById(R.id.question_btn);
 		question_btn.setOnClickListener(this);
 		question_info = (EditText) diaView.findViewById(R.id.question_info);
