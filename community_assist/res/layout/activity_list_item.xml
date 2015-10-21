@@ -16,7 +16,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
-        android:layout_toRightOf="@+id/topic_photo"
+        android:layout_toEndOf="@+id/act_photo"
+        android:layout_toRightOf="@+id/act_photo"
         android:orientation="vertical"
         android:padding="2dp" >
 
@@ -41,9 +42,10 @@
 
             <TextView
                 android:id="@+id/act_endDate"
-                android:paddingLeft="2dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginStart="2dp"
                 android:textColor="@color/bgray"
                 android:textSize="12sp" />
         </LinearLayout>

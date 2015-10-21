@@ -3,6 +3,8 @@ package cn.com.hzzc.industrial.pro.adapter;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+
 import android.content.Context;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -10,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import cn.com.hzzc.industrial.pro.GloableApplication;
 import cn.com.hzzc.industrial.pro.R;
 import cn.com.hzzc.industrial.pro.cons.SystemConst;
 import cn.com.hzzc.industrial.pro.entity.ActivityEntity;
@@ -65,6 +68,16 @@ public class ActivityItemAdapter extends BaseAdapter {
 			convertview.setTag(holder);
 		} else {
 			holder = (HolderView) convertview.getTag();
+		}
+
+		String imgId = "";// act.getImgId();
+		if (imgId != null && !"".equals(imgId)) {
+			String pic_url = "";
+			ImageLoader.getInstance().displayImage(pic_url, holder.act_photo,
+					GloableApplication.getDisplayImageOption());
+		} else {
+			String imageUri = "drawable://" + R.drawable.visitor_me_cover;
+			ImageLoader.getInstance().displayImage(imageUri, holder.act_photo);
 		}
 		holder.act_name.setText(act.getTitle());
 		holder.act_name.setOnClickListener(new OnClickListener() {
