@@ -10,6 +10,7 @@ import org.json.JSONObject;
 import cn.com.hzzc.industrial.pro.entity.ActivityEntity;
 import cn.com.hzzc.industrial.pro.entity.CheckItem;
 import cn.com.hzzc.industrial.pro.entity.ItemOption;
+import cn.com.hzzc.industrial.pro.entity.OffLineActEntity;
 
 /**
  * @todo 活动工具类
@@ -289,5 +290,40 @@ public class ActUtils {
 
 		return l;
 
+	}
+
+	/**
+	 * @param data
+	 * @return
+	 * @user:pang
+	 * @data:2015年10月23日
+	 * @todo:解析线下活动bean
+	 * @return:OffLineActEntity
+	 */
+	public static OffLineActEntity getOffAct(String data) {
+		OffLineActEntity b = new OffLineActEntity();
+		if (data != null && !"".equals(data)) {
+			try {
+				JSONObject j = new JSONObject(data);
+				String id = j.getString("id");
+				String content = j.getString("content");
+				String img0 = j.getString("img0");
+				String img1 = j.getString("img1");
+				if ("null".equals(img0)) {
+					img0 = "";
+				}
+				if ("null".equals(img1)) {
+					img1 = "";
+				}
+				b.setId(id);
+				b.setContent(content);
+				b.setImg0(img0);
+				b.setImg1(img1);
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return b;
 	}
 }

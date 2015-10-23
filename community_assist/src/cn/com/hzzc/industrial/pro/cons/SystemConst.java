@@ -15,6 +15,28 @@ public interface SystemConst {
 
 	public static final String server_url = "http://192.168.0.105:8080/IotApp/";
 
+	public class Type1Url {
+		/**
+		 * 修改线下活动content
+		 */
+		public static final String editActivityOfflineDetail = "commController/editActivityOfflineDetail.do";
+
+		/**
+		 * 单独添加线下活动的图片
+		 */
+		public static final String addActivityOfflineDetailImgOne = "commController/addActivityOfflineDetailImgOne.do";
+
+		/**
+		 * 删除 活动的某一张图片
+		 */
+		public static final String delActivityOfflineDetailImgOne = "commController/delActivityOfflineDetailImgOne.do";
+
+		/**
+		 * 查看线下活动详情
+		 */
+		public static final String queryActivityOfflineDetailBycommonId = "commController/queryActivityOfflineDetailById.do";
+	}
+
 	/**
 	 * 
 	 * @author pang
@@ -64,5 +86,6 @@ public interface SystemConst {
 		 * 修改统计项目
 		 */
 		public static final String editActivityStatisticItem = "commController/editActivityStatisticItem.do";
+
 	}
 }

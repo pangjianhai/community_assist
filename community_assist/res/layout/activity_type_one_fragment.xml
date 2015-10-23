@@ -8,36 +8,32 @@
     <TextView
         android:id="@+id/one_content"
         android:layout_width="fill_parent"
-        android:layout_height="300dp"
+        android:layout_height="200dp"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
-        android:text="线下活动简介"
+        android:text="可以编辑"
         android:textColor="@color/blue"
         android:textSize="20sp" />
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="40dp"
-        android:layout_below="@+id/title_ly"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/one_content"
         android:layout_gravity="center"
         android:orientation="vertical" >
 
         <ImageView
             android:id="@+id/one_img0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="90dp"
-            android:layout_marginRight="90dp"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
             android:background="@drawable/image_view_style"
             android:scaleType="centerCrop"
             android:src="@drawable/add_act_img" />
 
         <ImageView
             android:id="@+id/one_img1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="90dp"
-            android:layout_marginRight="90dp"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
             android:background="@drawable/image_view_style"
             android:scaleType="centerCrop"
             android:src="@drawable/add_act_img" />

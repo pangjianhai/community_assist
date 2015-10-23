@@ -15,10 +15,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import cn.com.hzzc.industrial.pro.cons.SystemConst;
+import cn.com.hzzc.industrial.pro.entity.OffLineActEntity;
+import cn.com.hzzc.industrial.pro.util.ActUtils;
 
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
  * @todo 线下活动
@@ -31,6 +34,7 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 	private Button type_1_edit;
 	private TextView one_content;
 	private ImageView one_img0, one_img1;
+	private OffLineActEntity oae = null;
 
 	View diaView;
 
@@ -79,23 +83,37 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 
 	}
 
+	@Override
+	public void onClick(View v) {
+		if (v.getId() == R.id.type_1_edit) {
+			Intent intent = new Intent();
+			intent.setClass(getActivity(), EditActTypeOneActivity.class);
+			intent.putExtra("dId", dId);
+			getActivity().startActivity(intent);
+			getActivity().finish();
+		} else if (v.getId() == R.id.question_btn) {// 保存或者修改
+		}
+	}
+
 	/**
 	 * @user:pang
-	 * @data:2015年10月20日
-	 * @todo:加载数据
+	 * @data:2015年10月23日
+	 * @todo:获取线下活动详情
 	 * @return:void
 	 */
-	private void loadData() {
+	public void getDetail() {
 		String url = SystemConst.server_url
-				+ SystemConst.Type3Url.queryActivityStatisticItemByStatisticId;
+				+ SystemConst.Type1Url.queryActivityOfflineDetailBycommonId;
 		try {
 			JSONObject d = new JSONObject();
-			d.put("statisticId", dId);
+			d.put("Id", dId);
 			RequestCallBack<String> rcb = new RequestCallBack<String>() {
 
 				@Override
 				public void onSuccess(ResponseInfo<String> responseInfo) {
 					String data = responseInfo.result;
+					oae = ActUtils.getOffAct(data);
+					render(oae);
 				}
 
 				@Override
@@ -108,23 +126,27 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
-	@Override
-	public void onClick(View v) {
-		if (v.getId() == R.id.type_1_edit) {
-			Intent intent = new Intent();
-			intent.setClass(getActivity(), ShowActivityDetailActivity.class);
-			intent.putExtra("dId", dId);
-			getActivity().startActivity(intent);
-			getActivity().finish();
-		} else if (v.getId() == R.id.question_btn) {// 保存或者修改
+	private void render(OffLineActEntity oae) {
+		one_content.setText(oae.getContent());
+		String img0 = oae.getImg0();
+		String img1 = oae.getImg1();
+
+		if (img0 != null && !"".equals(img0)) {
+			String pic_url = SystemConst.server_url
+					+ SystemConst.Type2Url.getImgByImgId + "?para={imgId:"
+					+ img0 + "}";
+			ImageLoader.getInstance().displayImage(pic_url, one_img0,
+					GloableApplication.getDisplayImageOption());
 		}
-	}
-
-	public void getDetail() {
-
+		if (img1 != null && !"".equals(img1)) {
+			String pic_url = SystemConst.server_url
+					+ SystemConst.Type2Url.getImgByImgId + "?para={imgId:"
+					+ img1 + "}";
+			ImageLoader.getInstance().displayImage(pic_url, one_img1,
+					GloableApplication.getDisplayImageOption());
+		}
 	}
 
 }
