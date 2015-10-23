@@ -165,6 +165,7 @@ public class EditActTypeOneActivity extends ParentActActivity implements
 				@Override
 				public void onSuccess(ResponseInfo<String> responseInfo) {
 					String data = responseInfo.result;
+					backoff(null);
 				}
 
 				@Override
@@ -174,7 +175,6 @@ public class EditActTypeOneActivity extends ParentActActivity implements
 			};
 			Map map = new HashMap();
 			map.put("para", d.toString());
-			System.out.println("url:" + url);
 			send_normal_request(url, map, rcb);
 		} catch (Exception e) {
 			e.printStackTrace();
