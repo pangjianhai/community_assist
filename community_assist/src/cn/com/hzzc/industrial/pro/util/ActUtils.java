@@ -319,11 +319,12 @@ public class ActUtils {
 				b.setContent(content);
 				b.setImg0(img0);
 				b.setImg1(img1);
+				return b;
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		return b;
+		return null;
 	}
 }

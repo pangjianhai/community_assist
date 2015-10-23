@@ -129,6 +129,9 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 	}
 
 	private void render(OffLineActEntity oae) {
+		if (oae == null) {
+			return;
+		}
 		one_content.setText(oae.getContent());
 		String img0 = oae.getImg0();
 		String img1 = oae.getImg1();
@@ -148,5 +151,4 @@ public class ActivityTypeOneFragment extends ParentActFragment implements
 					GloableApplication.getDisplayImageOption());
 		}
 	}
-
 }
