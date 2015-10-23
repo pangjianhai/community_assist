@@ -12,9 +12,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import cn.com.hzzc.industrial.pro.cons.SystemConst;
 import cn.com.hzzc.industrial.pro.entity.OffLineActEntity;
@@ -44,7 +44,7 @@ public class EditActTypeOneActivity extends ParentActActivity implements
 	private String path1 = "";
 	private String path2 = "";
 	// 保存按钮
-	private Button edit_type_1_save;
+	private TextView edit_type_1_save;
 	private OffLineActEntity oae = null;
 
 	@Override
@@ -70,7 +70,7 @@ public class EditActTypeOneActivity extends ParentActActivity implements
 		one_img0 = (ImageView) findViewById(R.id.edit_one_img0);
 		one_img1 = (ImageView) findViewById(R.id.edit_one_img1);
 		// 获取按钮
-		edit_type_1_save = (Button) findViewById(R.id.edit_edit_type_1_save);
+		edit_type_1_save = (TextView) findViewById(R.id.edit_edit_type_1_save);
 		edit_type_1_save.setOnClickListener(this);
 		one_img0.setOnClickListener(this);
 		one_img1.setOnClickListener(this);
@@ -97,16 +97,20 @@ public class EditActTypeOneActivity extends ParentActActivity implements
 	public void selectActImg(ArrayList<String> list) {
 		if (!list.isEmpty()) {
 			String path = list.get(0);
-			if (index == 0) {
-				ImageLoader.getInstance().displayImage("file://" + path,
-						one_img0, GloableApplication.getDisplayImageOption());
-				path1 = path;
-				saveImg("img0", path1);
-			} else {
-				ImageLoader.getInstance().displayImage("file://" + path,
-						one_img1, GloableApplication.getDisplayImageOption());
-				path2 = path;
-				saveImg("img1", path2);
+			if (path != null && !"".equals(path)) {
+				if (index == 0) {
+					ImageLoader.getInstance().displayImage("file://" + path,
+							one_img0,
+							GloableApplication.getDisplayImageOption());
+					path1 = path;
+					saveImg("img0", path1);
+				} else {
+					ImageLoader.getInstance().displayImage("file://" + path,
+							one_img1,
+							GloableApplication.getDisplayImageOption());
+					path2 = path;
+					saveImg("img1", path2);
+				}
 			}
 		}
 	}
@@ -230,5 +234,9 @@ public class EditActTypeOneActivity extends ParentActActivity implements
 			ImageLoader.getInstance().displayImage(pic_url, one_img1,
 					GloableApplication.getDisplayImageOption());
 		}
+	}
+
+	public void backoff(View v) {
+		finish();
 	}
 }

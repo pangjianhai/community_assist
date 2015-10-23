@@ -20,18 +20,28 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/one_content_title"
         android:layout_centerInParent="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="4dp"
         android:text="可以下面编辑"
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="16sp" />
+
+    <View
+        android:id="@+id/one_type_line"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/one_content"
+        android:layout_marginTop="15dp"
+        android:background="@color/deepgray" />
 
     <TextView
         android:id="@+id/one_img_title"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/one_content"
+        android:layout_below="@+id/one_type_line"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:text="宣传图片："
         android:textColor="@color/orange"
         android:textSize="12sp" />
@@ -43,7 +53,7 @@
         android:layout_gravity="center"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="4dp"
         android:orientation="vertical" >
 
         <ImageView
