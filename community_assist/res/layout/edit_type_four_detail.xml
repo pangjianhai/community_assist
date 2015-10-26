@@ -48,7 +48,7 @@
         android:orientation="horizontal" >
 
         <TextView
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="产品名称"
@@ -57,7 +57,7 @@
 
         <EditText
             android:id="@+id/edit_four_name"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="3"
             android:hint="XX产品"
@@ -73,7 +73,7 @@
         android:orientation="horizontal" >
 
         <TextView
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="活动内容"
@@ -82,8 +82,8 @@
 
         <EditText
             android:id="@+id/edit_four_content"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
             android:layout_weight="3"
             android:gravity="left"
             android:hint="活动简介..."
@@ -99,7 +99,7 @@
         android:orientation="horizontal" >
 
         <TextView
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="活动地址"
@@ -108,7 +108,7 @@
 
         <EditText
             android:id="@+id/edit_four_address"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="3"
             android:hint="某某大街"
@@ -124,17 +124,17 @@
         android:orientation="horizontal" >
 
         <TextView
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="left"
-            android:text="原价"
+            android:text="产品原价"
             android:textColor="@color/orange"
             android:textSize="12sp" />
 
         <EditText
             android:id="@+id/edit_four_oldprice"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="3"
             android:hint="1"
@@ -150,16 +150,16 @@
         android:orientation="horizontal" >
 
         <TextView
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="现价"
+            android:text="产品现价"
             android:textColor="@color/orange"
             android:textSize="12sp" />
 
         <EditText
             android:id="@+id/edit_four_newprice"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="3"
             android:gravity="left"

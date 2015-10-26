@@ -114,17 +114,15 @@ public class ActivityTypeFourFragment extends ParentActFragment implements
 	public void getDetail() {
 		String url = SystemConst.server_url
 				+ SystemConst.Type4Url.queryActivityFavorableDetailById;
-		System.out.println("url:" + url);
 		try {
 			JSONObject d = new JSONObject();
-			System.out.println("dId:" + dId);
 			d.put("Id", dId);
 			RequestCallBack<String> rcb = new RequestCallBack<String>() {
 
 				@Override
 				public void onSuccess(ResponseInfo<String> responseInfo) {
 					String data = responseInfo.result;
-					System.out.println("==data>"+data);
+					System.out.println("==data>" + data);
 					oae = ActUtils.getFavoriteEntity(data);
 					render(oae);
 				}
@@ -157,7 +155,7 @@ public class ActivityTypeFourFragment extends ParentActFragment implements
 		show_four_oldprice.setText(oldPrice);
 		show_four_newprice.setText(newPrice);
 		show_four_address.setText(address);
-		System.out.println("img0:"+img0);
+		System.out.println("img0:" + img0);
 		if (img0 != null && !"".equals(img0) && !"null".equals(img0)) {
 			String pic_url = SystemConst.server_url
 					+ SystemConst.Type2Url.getImgByImgId + "?para={imgId:"

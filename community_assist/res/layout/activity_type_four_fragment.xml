@@ -30,7 +30,7 @@
                     android:orientation="horizontal" >
 
                     <TextView
-                        android:layout_width="fill_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="产品名称"
@@ -39,7 +39,7 @@
 
                     <TextView
                         android:id="@+id/show_four_name"
-                        android:layout_width="fill_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:textColor="@color/black"
@@ -53,7 +53,7 @@
                     android:orientation="horizontal" >
 
                     <TextView
-                        android:layout_width="fill_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="活动内容"
@@ -62,7 +62,7 @@
 
                     <TextView
                         android:id="@+id/show_four_content"
-                        android:layout_width="fill_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:gravity="left"
@@ -77,7 +77,7 @@
                     android:orientation="horizontal" >
 
                     <TextView
-                        android:layout_width="fill_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="活动地址"
@@ -86,7 +86,7 @@
 
                     <TextView
                         android:id="@+id/show_four_address"
-                        android:layout_width="fill_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:textColor="@color/black"
@@ -100,17 +100,17 @@
                     android:orientation="horizontal" >
 
                     <TextView
-                        android:layout_width="fill_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="left"
-                        android:text="原价"
+                        android:text="产品原价"
                         android:textColor="@color/orange"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/show_four_oldprice"
-                        android:layout_width="fill_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:textColor="@color/black"
@@ -124,16 +124,16 @@
                     android:orientation="horizontal" >
 
                     <TextView
-                        android:layout_width="fill_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="现价"
+                        android:text="产品现价"
                         android:textColor="@color/orange"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/show_four_newprice"
-                        android:layout_width="fill_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:gravity="left"
