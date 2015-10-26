@@ -40,76 +40,139 @@
             android:textSize="16sp" />
     </RelativeLayout>
 
-    <EditText
-        android:id="@+id/edit_four_name"
+    <LinearLayout
+        android:id="@+id/edit_four_name_ly"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/layout_space_title_bar"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/bg_share_edittext"
-        android:gravity="left"
-        android:hint="产品名字..."
-        android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:orientation="horizontal" >
 
-    <EditText
-        android:id="@+id/edit_four_content"
-        android:layout_width="fill_parent"
-        android:layout_height="200dp"
-        android:layout_below="@+id/edit_four_name"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/bg_share_edittext"
-        android:gravity="left"
-        android:hint="活动简介..."
-        android:textColor="@color/black"
-        android:textSize="16sp" />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="产品名称"
+            android:textColor="@color/orange"
+            android:textSize="12sp" />
 
-    <EditText
-        android:id="@+id/edit_four_oldprice"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/edit_four_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/bg_share_edittext"
-        android:gravity="left"
-        android:hint="原价..."
-        android:textColor="@color/black"
-        android:textSize="16sp" />
+        <EditText
+            android:id="@+id/edit_four_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:hint="XX产品"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </LinearLayout>
 
-    <EditText
-        android:id="@+id/edit_four_newprice"
+    <LinearLayout
+        android:id="@+id/edit_four_content_ly"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edit_four_oldprice"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/bg_share_edittext"
-        android:gravity="left"
-        android:hint="现价..."
-        android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:layout_below="@+id/edit_four_name_ly"
+        android:orientation="horizontal" >
 
-    <EditText
-        android:id="@+id/edit_four_address"
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="活动内容"
+            android:textColor="@color/orange"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/edit_four_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:gravity="left"
+            android:hint="活动简介..."
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/edit_four_address_ly"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edit_four_newprice"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/bg_share_edittext"
-        android:gravity="left"
-        android:hint="地址..."
-        android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:layout_below="@+id/edit_four_content_ly"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="活动地址"
+            android:textColor="@color/orange"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/edit_four_address"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:hint="某某大街"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/edit_four_oldprice_ly"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_four_address_ly"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="原价"
+            android:textColor="@color/orange"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/edit_four_oldprice"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:hint="1"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/edit_four_newprice_ly"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_four_oldprice_ly"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="现价"
+            android:textColor="@color/orange"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/edit_four_newprice"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:gravity="left"
+            android:text="0.1"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </LinearLayout>
 
     <View
         android:id="@+id/one_type_line"
         android:layout_width="fill_parent"
         android:layout_height="1dp"
-        android:layout_below="@+id/edit_four_address"
+        android:layout_below="@+id/edit_four_newprice_ly"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"

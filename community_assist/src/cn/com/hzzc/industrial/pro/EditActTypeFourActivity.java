@@ -171,7 +171,7 @@ public class EditActTypeFourActivity extends ParentActActivity implements
 			d.put("Id", dId);
 			d.put("name", name);
 			d.put("content", content);
-			d.put("adress", address);
+			d.put("address", address);
 			d.put("oldPrice", oldPrice);
 			d.put("newPrice", newPrice);
 			RequestCallBack<String> rcb = new RequestCallBack<String>() {

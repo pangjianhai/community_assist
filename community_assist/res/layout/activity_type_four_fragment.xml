@@ -36,7 +36,6 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    android:text="XX产品"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -61,7 +60,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    android:text="活动简介..."
+                    android:gravity="left"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -86,7 +85,6 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    android:text="某某大街"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -102,6 +100,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="left"
                     android:text="原价"
                     android:textColor="@color/orange"
                     android:textSize="12sp" />
@@ -111,7 +110,6 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    android:text="1"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -136,7 +134,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    android:text="0.1"
+                    android:gravity="left"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
             </LinearLayout>

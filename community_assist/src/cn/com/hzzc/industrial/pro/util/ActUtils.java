@@ -355,7 +355,7 @@ public class ActUtils {
 				String newPrice = j.getString("newPrice");
 				String buyStatus = j.getString("buyStatus");
 				String commonId = j.getString("commonId");
-				String address = j.getString("adress");
+				String address = j.getString("address");
 				if ("null".equals(address)) {
 					address = "";
 				}
