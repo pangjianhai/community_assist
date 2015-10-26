@@ -88,4 +88,22 @@ public interface SystemConst {
 		public static final String editActivityStatisticItem = "commController/editActivityStatisticItem.do";
 
 	}
+
+	public class Type4Url {
+
+		/**
+		 * 根据ID获取优惠活动详情
+		 */
+		public static final String queryActivityFavorableDetailById = "commController/queryActivityFavorableDetailById.do";
+
+		/**
+		 * 编辑促销类型活动
+		 */
+		public static final String editActivityFavorableDetail = "commController/editActivityFavorableDetail.do";
+
+		/**
+		 * 上传图片
+		 */
+		public static final String addActivityFavorableDetailImg = "commController/addActivityFavorableDetailImg.do";
+	}
 }

@@ -76,6 +76,7 @@
         </activity>
         <activity android:name=".EditActTypeOneActivity" >
         </activity>
+        <activity android:name=".EditActTypeFourActivity"></activity>
         <!-- Required SDK核心功能 -->
         <activity
             android:name="cn.jpush.android.ui.PushActivity"

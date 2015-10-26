@@ -96,6 +96,8 @@ public class ActivityIntroductionFragment extends ParentActFragment {
 			t = "调查活动";
 		} else if ("2".equals(proType)) {
 			t = "统计活动";
+		} else if ("3".equals(proType)) {
+			t = "优惠活动";
 		}
 		add_act_type.setText(t);
 		add_act_beginDate.setText(entity.getBeginDate());

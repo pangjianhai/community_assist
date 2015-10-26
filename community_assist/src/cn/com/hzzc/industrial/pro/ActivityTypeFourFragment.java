@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import cn.com.hzzc.industrial.pro.cons.SystemConst;
+import cn.com.hzzc.industrial.pro.entity.FavoriteActiEntity;
 import cn.com.hzzc.industrial.pro.entity.OffLineActEntity;
 import cn.com.hzzc.industrial.pro.util.ActUtils;
 
@@ -24,7 +25,7 @@ import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
- * @todo 统计问卷
+ * @todo 优惠活动
  * @author pang
  *
  */
@@ -32,9 +33,10 @@ public class ActivityTypeFourFragment extends ParentActFragment implements
 		OnClickListener {
 
 	private Button type_1_edit;
-	private TextView one_content;
+	private TextView show_four_name, show_four_content, show_four_address,
+			show_four_oldprice, show_four_newprice;
 	private ImageView one_img0, one_img1;
-	private OffLineActEntity oae = null;
+	private FavoriteActiEntity oae = null;
 
 	View diaView;
 
@@ -73,7 +75,15 @@ public class ActivityTypeFourFragment extends ParentActFragment implements
 	 */
 	private void init() {
 		// 输入框
-		one_content = (TextView) mMainView.findViewById(R.id.one_content);
+		show_four_name = (TextView) mMainView.findViewById(R.id.show_four_name);
+		show_four_content = (TextView) mMainView
+				.findViewById(R.id.show_four_content);
+		show_four_address = (TextView) mMainView
+				.findViewById(R.id.show_four_address);
+		show_four_oldprice = (TextView) mMainView
+				.findViewById(R.id.show_four_oldprice);
+		show_four_newprice = (TextView) mMainView
+				.findViewById(R.id.show_four_newprice);
 		// 图片
 		one_img0 = (ImageView) mMainView.findViewById(R.id.one_img0);
 		one_img1 = (ImageView) mMainView.findViewById(R.id.one_img1);
@@ -87,7 +97,7 @@ public class ActivityTypeFourFragment extends ParentActFragment implements
 	public void onClick(View v) {
 		if (v.getId() == R.id.type_1_edit) {
 			Intent intent = new Intent();
-			intent.setClass(getActivity(), EditActTypeOneActivity.class);
+			intent.setClass(getActivity(), EditActTypeFourActivity.class);
 			intent.putExtra("dId", dId);
 			getActivity().startActivity(intent);
 			getActivity().finish();
@@ -103,16 +113,18 @@ public class ActivityTypeFourFragment extends ParentActFragment implements
 	 */
 	public void getDetail() {
 		String url = SystemConst.server_url
-				+ SystemConst.Type1Url.queryActivityOfflineDetailBycommonId;
+				+ SystemConst.Type4Url.queryActivityFavorableDetailById;
+		System.out.println("url:" + url);
 		try {
 			JSONObject d = new JSONObject();
+			System.out.println("dId:" + dId);
 			d.put("Id", dId);
 			RequestCallBack<String> rcb = new RequestCallBack<String>() {
 
 				@Override
 				public void onSuccess(ResponseInfo<String> responseInfo) {
 					String data = responseInfo.result;
-					oae = ActUtils.getOffAct(data);
+					oae = null;// ActUtils.getOffAct(data);
 					render(oae);
 				}
 
@@ -128,22 +140,31 @@ public class ActivityTypeFourFragment extends ParentActFragment implements
 		}
 	}
 
-	private void render(OffLineActEntity oae) {
+	private void render(FavoriteActiEntity oae) {
 		if (oae == null) {
 			return;
 		}
-		one_content.setText(oae.getContent());
+		String name = oae.getName();
+		String content = oae.getContent();
+		String address = oae.getAddress();
+		String oldPrice = oae.getOldPrice();
+		String newPrice = oae.getNewPrice();
 		String img0 = oae.getImg0();
 		String img1 = oae.getImg1();
+		show_four_name.setText(name);
+		show_four_content.setText(content);
+		show_four_oldprice.setText(oldPrice);
+		show_four_newprice.setText(newPrice);
+		show_four_address.setText(address);
 
-		if (img0 != null && !"".equals(img0)) {
+		if (img0 != null && !"".equals(img0) && !"null".equals(img0)) {
 			String pic_url = SystemConst.server_url
 					+ SystemConst.Type2Url.getImgByImgId + "?para={imgId:"
 					+ img0 + "}";
 			ImageLoader.getInstance().displayImage(pic_url, one_img0,
 					GloableApplication.getDisplayImageOption());
 		}
-		if (img1 != null && !"".equals(img1)) {
+		if (img1 != null && !"".equals(img1) && !"null".equals(img1)) {
 			String pic_url = SystemConst.server_url
 					+ SystemConst.Type2Url.getImgByImgId + "?para={imgId:"
 					+ img1 + "}";

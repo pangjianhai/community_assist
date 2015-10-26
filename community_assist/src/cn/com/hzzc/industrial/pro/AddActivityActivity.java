@@ -51,7 +51,7 @@ public class AddActivityActivity extends ParentActActivity implements
 	private Spinner add_act_type;
 	private ArrayAdapter<String> typesAd = null;
 	private String type = "0";
-	String[] nt = { "线下活动", "调查活动", "统计活动" };
+	String[] nt = { "线下活动", "调查活动", "统计活动", "促销活动" };
 	String file = "";
 	/**
 	 * 专属本社区
@@ -112,6 +112,8 @@ public class AddActivityActivity extends ParentActActivity implements
 					type = TypeConst.ActTypeConst.TYPE_ACTIVITY_QUESTION;
 				} else if ("统计活动".equals(proType)) {
 					type = TypeConst.ActTypeConst.TYPE_ACTIVITY_STATICTICS;
+				} else if ("促销活动".equals(proType)) {
+					type = TypeConst.ActTypeConst.TYPE_ACTIVITY_YOUHUI;
 				}
 			}
 
