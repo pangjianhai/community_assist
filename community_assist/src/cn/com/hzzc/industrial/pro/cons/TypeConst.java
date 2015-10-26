@@ -19,5 +19,7 @@ public interface TypeConst {
 		public static final String TYPE_ACTIVITY_QUESTION = "1";
 		// 统计活动
 		public static final String TYPE_ACTIVITY_STATICTICS = "2";
+		// 优惠活动
+		public static final String TYPE_ACTIVITY_YOUHUI = "3";
 	}
 }

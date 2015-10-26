@@ -63,6 +63,8 @@ public class ShowActivityDetailActivity extends BaseFragmentActivity {
 			tspace = new ActivityTypeThreeFragment(dId);
 		} else if (TypeConst.ActTypeConst.TYPE_ACTIVITY_OFFLINE.equals(actType)) {
 			tspace = new ActivityTypeOneFragment(dId);
+		} else if (TypeConst.ActTypeConst.TYPE_ACTIVITY_YOUHUI.equals(actType)) {
+			tspace = new ActivityTypeFourFragment(dId);
 		}
 		Fragment uspace = new ActivityUsersFragment(dId);
 
