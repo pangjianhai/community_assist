@@ -76,7 +76,18 @@
         </activity>
         <activity android:name=".EditActTypeOneActivity" >
         </activity>
-        <activity android:name=".EditActTypeFourActivity"></activity>
+        <activity android:name=".EditActTypeFourActivity" >
+        </activity>
+        <activity android:name=".AddTopicOneActivity" >
+        </activity>
+        <activity android:name=".AddTopicTowActivity" >
+        </activity>
+        <activity android:name=".ListMyTopicActivity" >
+        </activity>
+        <activity android:name=".EditTopicOneActivity" >
+        </activity>
+        <activity android:name=".EditTopicTowActivity" >
+        </activity>
         <!-- Required SDK核心功能 -->
         <activity
             android:name="cn.jpush.android.ui.PushActivity"

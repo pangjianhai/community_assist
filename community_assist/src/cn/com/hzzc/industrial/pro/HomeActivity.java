@@ -93,6 +93,31 @@ public class HomeActivity extends BaseActivity implements OnClickListener,
 		startActivity(intent);
 	}
 
+	/**
+	 * 
+	 * @user:pang
+	 * @data:2015年10月26日
+	 * @todo:添加主题
+	 * @return:void
+	 */
+	public void createTopic() {
+		Intent intent = new Intent();
+		intent.setClass(HomeActivity.this, AddTopicOneActivity.class);
+		startActivity(intent);
+	}
+
+	/**
+	 * @user:pang
+	 * @data:2015年10月26日
+	 * @todo:主题一览
+	 * @return:void
+	 */
+	private void listTopic() {
+		Intent intent = new Intent();
+		intent.setClass(HomeActivity.this, ListMyTopicActivity.class);
+		startActivity(intent);
+	}
+
 	@Override
 	public void click(int index) {
 		HomeItem hi = ds.get(index);
@@ -101,6 +126,10 @@ public class HomeActivity extends BaseActivity implements OnClickListener,
 			createAct();
 		} else if (HomeItem.all_act.equals(flag)) {
 			listActivity();
+		} else if (HomeItem.all_topic.equals(flag)) {
+			listTopic();
+		} else if (HomeItem.add_topic.equals(flag)) {
+			createTopic();
 		}
 	}
 
