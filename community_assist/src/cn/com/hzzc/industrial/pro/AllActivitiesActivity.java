@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import cn.com.hzzc.industrial.pro.adapter.ActivityItemAdapter;
 import cn.com.hzzc.industrial.pro.cons.SystemConst;
@@ -40,6 +41,7 @@ import com.lidroid.xutils.http.callback.RequestCallBack;
  */
 public class AllActivitiesActivity extends BaseActivity implements
 		IActivityOperator {
+	private ProgressBar all_actis_loading_now;
 	private SwipeMenuListView acts_lv;
 	private ActivityItemAdapter actItemAdapter;
 	private List<ActivityEntity> ds = new ArrayList<ActivityEntity>();
@@ -55,6 +57,7 @@ public class AllActivitiesActivity extends BaseActivity implements
 	}
 
 	private void init() {
+		all_actis_loading_now = (ProgressBar) findViewById(R.id.all_actis_loading_now);
 		acts_lv = (SwipeMenuListView) findViewById(R.id.acts_lv);
 		actItemAdapter = new ActivityItemAdapter(AllActivitiesActivity.this,
 				AllActivitiesActivity.this, ds);
@@ -159,7 +162,7 @@ public class AllActivitiesActivity extends BaseActivity implements
 	 * @return:void
 	 */
 	private void loadDataMore() {
-
+		all_actis_loading_now.setVisibility(View.VISIBLE);
 		String url = SystemConst.server_url
 				+ SystemConst.Type2Url.queryCommenActivityBysocietyId;
 		try {
@@ -173,10 +176,12 @@ public class AllActivitiesActivity extends BaseActivity implements
 					List<ActivityEntity> lst = ActUtils.getActivities(data);
 					ds.addAll(lst);
 					actItemAdapter.notifyDataSetChanged();
+					all_actis_loading_now.setVisibility(View.GONE);
 				}
 
 				@Override
 				public void onFailure(HttpException error, String msg) {
+					all_actis_loading_now.setVisibility(View.GONE);
 				}
 			};
 			Map map = new HashMap();

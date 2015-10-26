@@ -42,4 +42,15 @@
         </cn.com.hzzc.industrial.pro.part.wipelist.SwipeMenuListView>
     </LinearLayout>
 
+    <ProgressBar
+        android:id="@+id/all_actis_loading_now"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerInParent="true"
+        android:indeterminateBehavior="repeat"
+        android:indeterminateDrawable="@drawable/progress_roll"
+        android:indeterminateOnly="true"
+        android:visibility="gone" />
+
 </RelativeLayout>
