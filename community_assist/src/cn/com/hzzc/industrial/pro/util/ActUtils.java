@@ -9,6 +9,7 @@ import org.json.JSONObject;
 
 import cn.com.hzzc.industrial.pro.entity.ActivityEntity;
 import cn.com.hzzc.industrial.pro.entity.CheckItem;
+import cn.com.hzzc.industrial.pro.entity.FavoriteActiEntity;
 import cn.com.hzzc.industrial.pro.entity.ItemOption;
 import cn.com.hzzc.industrial.pro.entity.OffLineActEntity;
 
@@ -316,6 +317,61 @@ public class ActUtils {
 					img1 = "";
 				}
 				b.setId(id);
+				b.setContent(content);
+				b.setImg0(img0);
+				b.setImg1(img1);
+				return b;
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * @param data
+	 * @return
+	 * @user:pang
+	 * @data:2015年10月26日
+	 * @todo:解析促销活动
+	 * @return:FavoriteActiEntity
+	 */
+	public static FavoriteActiEntity getFavoriteEntity(String data) {
+		FavoriteActiEntity b = new FavoriteActiEntity();
+		if (data != null && !"".equals(data)) {
+			try {
+				JSONObject j = new JSONObject(data);
+				String id = j.getString("id");
+				String content = j.getString("content");
+				if ("null".equals(content)) {
+					content = "";
+				}
+				String name = j.getString("name");
+				if ("null".equals(name)) {
+					name = "";
+				}
+				String oldPrice = j.getString("oldPrice");
+				String newPrice = j.getString("newPrice");
+				String buyStatus = j.getString("buyStatus");
+				String commonId = j.getString("commonId");
+				String address = j.getString("adress");
+				if ("null".equals(address)) {
+					address = "";
+				}
+				String img0 = j.getString("img0");
+				String img1 = j.getString("img1");
+				if ("null".equals(img0)) {
+					img0 = "";
+				}
+				if ("null".equals(img1)) {
+					img1 = "";
+				}
+				b.setId(id);
+				b.setName(name);
+				b.setOldPrice(oldPrice);
+				b.setNewPrice(newPrice);
+				b.setAddress(address);
 				b.setContent(content);
 				b.setImg0(img0);
 				b.setImg1(img1);

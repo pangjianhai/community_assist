@@ -124,7 +124,8 @@ public class ActivityTypeFourFragment extends ParentActFragment implements
 				@Override
 				public void onSuccess(ResponseInfo<String> responseInfo) {
 					String data = responseInfo.result;
-					oae = null;// ActUtils.getOffAct(data);
+					System.out.println("data:" + data);
+					oae = ActUtils.getFavoriteEntity(data);
 					render(oae);
 				}
 

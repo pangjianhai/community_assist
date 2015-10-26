@@ -19,6 +19,7 @@ import android.widget.Toast;
 import cn.com.hzzc.industrial.pro.cons.SystemConst;
 import cn.com.hzzc.industrial.pro.entity.FavoriteActiEntity;
 import cn.com.hzzc.industrial.pro.task.UploadFileTask;
+import cn.com.hzzc.industrial.pro.util.ActUtils;
 
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
@@ -211,8 +212,7 @@ public class EditActTypeFourActivity extends ParentActActivity implements
 				@Override
 				public void onSuccess(ResponseInfo<String> responseInfo) {
 					String data = responseInfo.result;
-					System.out.println("=====>data:" + data);
-					oae = null;// ActUtils.getOffAct(data);
+					oae = ActUtils.getFavoriteEntity(data);
 					render(oae);
 				}
 
