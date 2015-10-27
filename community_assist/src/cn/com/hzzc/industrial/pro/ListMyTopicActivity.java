@@ -231,6 +231,10 @@ public class ListMyTopicActivity extends BaseActivity implements
 	 * @return:void
 	 */
 	public void goInto(TopicEntity item) {
+		Intent intent = new Intent();
+		intent.setClass(ListMyTopicActivity.this, ShowTopicDetailActivity.class);
+		intent.putExtra("topicId", item.getId());
+		startActivity(intent);
 	}
 
 	public void edit(TopicEntity item) {

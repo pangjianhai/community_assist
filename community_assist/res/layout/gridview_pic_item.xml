@@ -1,0 +1,14 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <!-- 分享展示的时候gridview每一个图片 -->
+
+    <ImageView
+        android:id="@+id/gridview_pic_item_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="1dp"
+        android:scaleType="centerCrop" />
+
+</RelativeLayout>

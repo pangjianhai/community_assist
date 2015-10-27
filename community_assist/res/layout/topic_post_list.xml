@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/topic_post_no_post_notice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="暂无发言，抢沙发时间到了"
+        android:textAppearance="@android:attr/textAppearanceInverse"
+        android:textColor="@color/bgray"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        android:visibility="gone" />
+
+    <cn.com.hzzc.industrial.pro.part.XListView
+        android:id="@+id/space_lv"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:divider="@color/deepgray"
+        android:dividerHeight="3dp"
+        android:visibility="visible" >
+    </cn.com.hzzc.industrial.pro.part.XListView>
+
+</LinearLayout>

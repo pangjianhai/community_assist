@@ -88,6 +88,7 @@
         </activity>
         <activity android:name=".EditTopicTowActivity" >
         </activity>
+        <activity android:name=".ShowTopicDetailActivity"></activity>
         <!-- Required SDK核心功能 -->
         <activity
             android:name="cn.jpush.android.ui.PushActivity"

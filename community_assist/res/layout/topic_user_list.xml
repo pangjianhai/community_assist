@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <cn.com.hzzc.industrial.pro.part.XListView.XListView
+        android:id="@+id/space_lv"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:divider="@color/deepgray"
+        android:dividerHeight="1dp" >
+    </cn.com.hzzc.industrial.pro.part.XListView.XListView>
+
+</LinearLayout>

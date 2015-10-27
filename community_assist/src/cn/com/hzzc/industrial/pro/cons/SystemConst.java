@@ -137,5 +137,36 @@ public interface SystemConst {
 		 * 根据用ID获取主题图片
 		 */
 		public static final String getTopicImgByPicId = "topicController/getTopicImgByPicId.do";
+
+		/**
+		 * 获取主题参与人数以及评论总是
+		 */
+		public static final String querypicPostParticipationNumAndCommentNum = "topicController/querypicPostParticipationNumAndCommentNum.do";
+
+		/**
+		 * 获取主题下的参与人分页
+		 */
+		public static final String queryTopicUserByTopicId = "topicController/queryTopicUserByTopicId.do";
+
+		/**
+		 * 根据图片ID获取主题评论图片
+		 */
+		public static final String getTopicPostImgById = "topicController/getTopicImgByImgId.do";
+
+		/**
+		 * 根据主题获取评论
+		 */
+		public static final String getCommentByTopic = "topicController/queryTopicPostPageallByPicId.do";
+	}
+
+	public class FunctionUrl {
+		/**
+		 * 根据图片ID获取分享图片
+		 */
+		public static final String getHeadImgById = "appSourceController/getHeadImgByImgId.do";
+		/**
+		 * 根据用ID获取分享图片
+		 */
+		public static final String getHeadImgByUserId = "appSourceController/getUserHeadImgByUserId.do";
 	}
 }
