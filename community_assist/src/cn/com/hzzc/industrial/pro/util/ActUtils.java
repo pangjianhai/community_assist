@@ -415,4 +415,41 @@ public class ActUtils {
 
 		return null;
 	}
+
+	/**
+	 * @param data
+	 * @return
+	 * @user:pang
+	 * @data:2015年10月27日
+	 * @todo:解析
+	 * @return:List<TopicEntity>
+	 */
+	public static List<TopicEntity> getTopics(String data) {
+		List<TopicEntity> lst = new ArrayList<TopicEntity>();
+		try {
+			JSONObject j = new JSONObject(data);
+			JSONArray array = j.getJSONArray("baseTopics");
+			if (array != null && array.length() > 0) {
+				for (int i = 0; i < array.length(); i++) {
+					JSONObject o = array.getJSONObject(i);
+					String id = o.getString("id");
+					String name = o.getString("name");
+					String content = o.getString("content");
+					String createDate = o.getString("createDate");
+					String imgId = o.getString("imgId");
+					String userId = o.getString("userId");
+					TopicEntity te = new TopicEntity();
+					te.setId(id);
+					te.setName(name);
+					te.setDesc(content);
+					te.setImgId(imgId);
+					te.setCreateDate(createDate);
+					lst.add(te);
+				}
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return lst;
+	}
 }

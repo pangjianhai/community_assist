@@ -168,8 +168,8 @@ public class ListMyTopicActivity extends BaseActivity implements
 				+ SystemConst.TopicUrl.queryBaseTopicPageByuserId;
 		try {
 			JSONObject d = new JSONObject();
-			d.put("userId", "userId");
-			d.put("rows", 1);
+			d.put("userId", userId);
+			d.put("page", 1);
 			d.put("rows", 100);
 			RequestCallBack<String> rcb = new RequestCallBack<String>() {
 
@@ -177,9 +177,11 @@ public class ListMyTopicActivity extends BaseActivity implements
 				public void onSuccess(ResponseInfo<String> responseInfo) {
 					String data = responseInfo.result;
 					System.out.println("<><><>***data:" + data);
-					List<TopicEntity> lst = null;// ActUtils.getActivities(data);
-					ds.addAll(lst);
-					actItemAdapter.notifyDataSetChanged();
+					List<TopicEntity> lst = ActUtils.getTopics(data);
+					if (lst != null && !lst.isEmpty()) {
+						ds.addAll(lst);
+						actItemAdapter.notifyDataSetChanged();
+					}
 					all_actis_loading_now.setVisibility(View.GONE);
 				}
 
@@ -240,7 +242,10 @@ public class ListMyTopicActivity extends BaseActivity implements
 	}
 
 	public void edit(TopicEntity item) {
-
+		Intent intent = new Intent();
+		intent.setClass(ListMyTopicActivity.this, AddTopicTowActivity.class);
+		intent.putExtra("topicId", item.getId());
+		startActivity(intent);
 	}
 
 	@Override
