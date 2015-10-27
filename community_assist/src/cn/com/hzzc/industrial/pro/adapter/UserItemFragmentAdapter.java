@@ -96,7 +96,7 @@ public class UserItemFragmentAdapter extends BaseAdapter {
 			@Override
 			public void onClick(View v) {
 				if (context instanceof ShowTopicDetailActivity) {
-					((ShowTopicDetailActivity) context).checkSomeOne(uuid);
+					// ((ShowTopicDetailActivity) context).checkSomeOne(uuid);
 				}
 			}
 		});
