@@ -80,7 +80,7 @@ public class ListMyTopicActivity extends BaseActivity implements
 				// set item width
 				openItem.setWidth(dp2px(90));
 				// set item title
-				openItem.setTitle("进入");
+				openItem.setTitle("查看");
 				// set item title fontsize
 				openItem.setTitleSize(18);
 				// set item title font color
@@ -176,7 +176,6 @@ public class ListMyTopicActivity extends BaseActivity implements
 				@Override
 				public void onSuccess(ResponseInfo<String> responseInfo) {
 					String data = responseInfo.result;
-					System.out.println("<><><>***data:" + data);
 					List<TopicEntity> lst = ActUtils.getTopics(data);
 					if (lst != null && !lst.isEmpty()) {
 						ds.addAll(lst);

@@ -47,10 +47,9 @@
             android:orientation="vertical" >
 
             <TextView
-                android:layout_width="50dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="上传图片"
+                android:text="选择图片上传"
                 android:textSize="18dp" />
 
             <ImageView

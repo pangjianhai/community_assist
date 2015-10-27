@@ -36,6 +36,12 @@ public class AddTopicTowActivity extends ParentActActivity implements
 		init();
 	}
 
+	/**
+	 * @user:pang
+	 * @data:2015年10月27日
+	 * @todo:初始化 界面
+	 * @return:void
+	 */
 	private void init() {
 		topicId = getIntent().getStringExtra("topicId");
 		add_topic_tow_img = (ImageView) findViewById(R.id.add_topic_tow_img);
@@ -98,7 +104,4 @@ public class AddTopicTowActivity extends ParentActActivity implements
 		}
 	}
 
-	public void getDetail() {
-
-	}
 }
