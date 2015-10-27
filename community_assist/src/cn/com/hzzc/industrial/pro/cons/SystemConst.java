@@ -106,4 +106,16 @@ public interface SystemConst {
 		 */
 		public static final String addActivityFavorableDetailImg = "commController/addActivityFavorableDetailImg.do";
 	}
+
+	public class TopicUrl {
+		/**
+		 * 添加主题基本信息
+		 */
+		public static final String addBaseTopic = "commController/addBaseTopic.do";
+
+		/**
+		 * 添加主题的图片
+		 */
+		public static final String addBaseTopicImg = "commController/addBaseTopicImg.do";
+	}
 }

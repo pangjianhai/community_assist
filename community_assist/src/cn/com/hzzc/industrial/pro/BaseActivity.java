@@ -35,7 +35,7 @@ public class BaseActivity extends InstrumentedActivity {
 	@Override
 	public void onCreate(Bundle b) {
 		super.onCreate(b);
-		this.userId = GloableApplication.getUserId();
+		this.userId = "123";//GloableApplication.getUserId();
 		ActivityCollector.addActivity(this);
 
 	}
