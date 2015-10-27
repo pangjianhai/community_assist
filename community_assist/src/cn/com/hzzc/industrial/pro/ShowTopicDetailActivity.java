@@ -2,7 +2,6 @@ package cn.com.hzzc.industrial.pro;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -12,13 +11,11 @@ import org.json.JSONObject;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import cn.com.hzzc.industrial.pro.cons.SystemConst;
@@ -26,12 +23,9 @@ import cn.com.hzzc.industrial.pro.entity.TopicEntity;
 import cn.com.hzzc.industrial.pro.part.HomeFrameAdapter;
 import cn.com.hzzc.industrial.pro.util.ActUtils;
 
-import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
-import com.lidroid.xutils.http.RequestParams;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
-import com.lidroid.xutils.http.client.HttpRequest;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
@@ -39,12 +33,9 @@ import com.nostra13.universalimageloader.core.ImageLoader;
  * @author pang
  *
  */
-public class ShowTopicDetailActivity extends FragmentActivity {
+public class ShowTopicDetailActivity extends BaseFragmentActivity {
 
 	private TextView topic_name, topic_uer_num, topic_comment_num;
-	/********** 是否参与某一主题 ***********/
-	private boolean isIn = false;// true:已经参与 false:未参与
-	private Button is_in_topic;
 
 	/****** 分页有关 *******/
 	private ViewPager viewPager;
@@ -68,7 +59,6 @@ public class ShowTopicDetailActivity extends FragmentActivity {
 		Fragment tspace = new TopicUserFragment();
 		lists.add(sspace);
 		lists.add(tspace);
-		System.out.println(")))");
 		myAdapter = new HomeFrameAdapter(getSupportFragmentManager(), lists);
 		/**
 		 * 初始化viewpaper
@@ -84,7 +74,6 @@ public class ShowTopicDetailActivity extends FragmentActivity {
 
 	private void initParam() {
 		topic_name = (TextView) findViewById(R.id.topic_name);
-		is_in_topic = (Button) findViewById(R.id.is_in_topic);
 
 		topic_uer_num = (TextView) findViewById(R.id.topic_uer_num);
 		topic_comment_num = (TextView) findViewById(R.id.topic_comment_num);
@@ -250,23 +239,6 @@ public class ShowTopicDetailActivity extends FragmentActivity {
 		return super.dispatchTouchEvent(ev);
 	}
 
-	public void send_normal_request(String url, Map<String, String> p,
-			RequestCallBack<?> rcb) {
-		RequestParams params = new RequestParams();
-		if (p != null) {
-			Iterator<Map.Entry<String, String>> it = p.entrySet().iterator();
-			/**
-			 * 添加参数
-			 */
-			while (it.hasNext()) {
-				Map.Entry<String, String> entry = it.next();
-				params.addBodyParameter(entry.getKey(), entry.getValue());
-			}
-		}
-		HttpUtils http = new HttpUtils();
-		http.send(HttpRequest.HttpMethod.POST, url, params, rcb);
-	}
-
 	/**
 	 * @param v
 	 * @user:pang
@@ -276,9 +248,6 @@ public class ShowTopicDetailActivity extends FragmentActivity {
 	 */
 	public void backoff(View v) {
 		this.finish();
-	}
-
-	public void checkSomeOne(String id) {
 	}
 
 }

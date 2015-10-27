@@ -91,19 +91,6 @@
                         android:text="0人参与"
                         android:visibility="gone" />
                 </LinearLayout>
-
-                <Button
-                    android:id="@+id/is_in_topic"
-                    android:layout_width="30dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:onClick="is_in_ops"
-                    android:text="退出"
-                    android:textColor="@color/orange"
-                    android:textSize="12sp" />
             </LinearLayout>
         </FrameLayout>
 
