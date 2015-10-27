@@ -101,5 +101,6 @@ public class AddTopicOneActivity extends BaseActivity {
 		intent.putExtra("topicId", topicId);
 		add_topic_one_loading_now.setVisibility(View.GONE);
 		startActivity(intent);
+		finish();
 	}
 }

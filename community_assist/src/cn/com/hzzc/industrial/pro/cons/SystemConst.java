@@ -119,6 +119,11 @@ public interface SystemConst {
 		public static final String addBaseTopicImg = "topicController/addBaseTopicImg.do";
 
 		/**
+		 * 修改主题基本信息
+		 */
+		public static final String editBaseTopicBypicId = "topicController/editBaseTopicBypicId.do";
+
+		/**
 		 * 根据用户取出其建立的主题
 		 */
 		public static final String queryBaseTopicPageByuserId = "topicController/queryBaseTopicPageByuserId.do";

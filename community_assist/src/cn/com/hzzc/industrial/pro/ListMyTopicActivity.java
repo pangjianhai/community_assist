@@ -237,9 +237,16 @@ public class ListMyTopicActivity extends BaseActivity implements
 		startActivity(intent);
 	}
 
+	/**
+	 * @param item
+	 * @user:pang
+	 * @data:2015年10月27日
+	 * @todo:编辑主题基本信息
+	 * @return:void
+	 */
 	public void edit(TopicEntity item) {
 		Intent intent = new Intent();
-		intent.setClass(ListMyTopicActivity.this, AddTopicTowActivity.class);
+		intent.setClass(ListMyTopicActivity.this, EditTopicOneActivity.class);
 		intent.putExtra("topicId", item.getId());
 		startActivity(intent);
 	}
