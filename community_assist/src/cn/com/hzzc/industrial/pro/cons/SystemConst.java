@@ -122,5 +122,20 @@ public interface SystemConst {
 		 * 根据用户取出其建立的主题
 		 */
 		public static final String queryBaseTopicPageByuserId = "topicController/queryBaseTopicPageByuserId.do";
+
+		/**
+		 * 获取主题的详情信息
+		 */
+		public static final String get_topic_info_by_id = "topicController/getBaseTopicBypicId.do";
+
+		/**
+		 * 根据用ID获取主题图片
+		 */
+		public static final String getTopicImgByImgId = "topicController/getTopicImgByImgId.do";
+
+		/**
+		 * 根据用ID获取主题图片
+		 */
+		public static final String getTopicImgByPicId = "topicController/getTopicImgByPicId.do";
 	}
 }

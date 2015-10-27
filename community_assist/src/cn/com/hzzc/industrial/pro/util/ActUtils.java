@@ -12,6 +12,7 @@ import cn.com.hzzc.industrial.pro.entity.CheckItem;
 import cn.com.hzzc.industrial.pro.entity.FavoriteActiEntity;
 import cn.com.hzzc.industrial.pro.entity.ItemOption;
 import cn.com.hzzc.industrial.pro.entity.OffLineActEntity;
+import cn.com.hzzc.industrial.pro.entity.TopicEntity;
 
 /**
  * @todo 活动工具类
@@ -381,6 +382,37 @@ public class ActUtils {
 				e.printStackTrace();
 			}
 		}
+		return null;
+	}
+
+	/**
+	 * 
+	 * @param data
+	 * @return
+	 * @user:pang
+	 * @data:2015年10月27日
+	 * @todo:解析主题信息
+	 * @return:TopicEntity
+	 */
+	public static TopicEntity parseEntityByJSON(String data) {
+		try {
+			JSONObject obj = new JSONObject(data);
+			String id = obj.getString("id");
+			String name = obj.getString("name");
+			String content = obj.getString("content");
+			String createDate = obj.getString("createDate");
+			String imgId = obj.getString("imgId");
+			TopicEntity bean = new TopicEntity();
+			bean.setId(id);
+			bean.setDesc(content);
+			bean.setName(name);
+			bean.setImgId(imgId);
+			bean.setCreateDate(createDate);
+			return bean;
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+
 		return null;
 	}
 }

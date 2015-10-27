@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="新建主题"
+            android:text="设置主题图片"
             android:textColor="@color/black"
             android:textSize="20sp" />
     </RelativeLayout>
@@ -42,7 +42,7 @@
 
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="vertical" >
 

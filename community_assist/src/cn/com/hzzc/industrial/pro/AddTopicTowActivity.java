@@ -39,6 +39,12 @@ public class AddTopicTowActivity extends ParentActActivity implements
 	private void init() {
 		topicId = getIntent().getStringExtra("topicId");
 		add_topic_tow_img = (ImageView) findViewById(R.id.add_topic_tow_img);
+
+		String pic_url = SystemConst.server_url
+				+ SystemConst.TopicUrl.getTopicImgByPicId + "?para={picId:'"
+				+ topicId + "'}";
+		ImageLoader.getInstance().displayImage(pic_url, add_topic_tow_img,
+				GloableApplication.getDisplayImageOption());
 	}
 
 	@Override
@@ -90,5 +96,9 @@ public class AddTopicTowActivity extends ParentActActivity implements
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void getDetail() {
+
 	}
 }

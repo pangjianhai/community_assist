@@ -37,12 +37,25 @@ public class AddTopicOneActivity extends BaseActivity {
 		init();
 	}
 
+	/**
+	 * @user:pang
+	 * @data:2015年10月27日
+	 * @todo:初始化
+	 * @return:void
+	 */
 	private void init() {
 		add_topic_name = (EditText) findViewById(R.id.add_topic_name);
 		add_topic_desc = (EditText) findViewById(R.id.add_topic_desc);
 		add_topic_one_loading_now = (ProgressBar) findViewById(R.id.add_topic_one_loading_now);
 	}
 
+	/**
+	 * @param v
+	 * @user:pang
+	 * @data:2015年10月27日
+	 * @todo:保存基本信息
+	 * @return:void
+	 */
 	public void next(View v) {
 		add_topic_one_loading_now.setVisibility(View.VISIBLE);
 		String url = SystemConst.server_url + SystemConst.TopicUrl.addBaseTopic;
