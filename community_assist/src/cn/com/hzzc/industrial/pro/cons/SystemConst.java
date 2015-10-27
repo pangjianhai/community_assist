@@ -111,11 +111,16 @@ public interface SystemConst {
 		/**
 		 * 添加主题基本信息
 		 */
-		public static final String addBaseTopic = "commController/addBaseTopic.do";
+		public static final String addBaseTopic = "topicController/addBaseTopic.do";
 
 		/**
 		 * 添加主题的图片
 		 */
-		public static final String addBaseTopicImg = "commController/addBaseTopicImg.do";
+		public static final String addBaseTopicImg = "topicController/addBaseTopicImg.do";
+
+		/**
+		 * 根据用户取出其建立的主题
+		 */
+		public static final String queryBaseTopicPageByuserId = "topicController/queryBaseTopicPageByuserId.do";
 	}
 }

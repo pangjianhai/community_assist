@@ -165,15 +165,18 @@ public class ListMyTopicActivity extends BaseActivity implements
 	private void loadDataMore() {
 		all_actis_loading_now.setVisibility(View.VISIBLE);
 		String url = SystemConst.server_url
-				+ SystemConst.Type2Url.queryCommenActivityBysocietyId;
+				+ SystemConst.TopicUrl.queryBaseTopicPageByuserId;
 		try {
 			JSONObject d = new JSONObject();
-			d.put("societyId", "1");
+			d.put("userId", "userId");
+			d.put("rows", 1);
+			d.put("rows", 100);
 			RequestCallBack<String> rcb = new RequestCallBack<String>() {
 
 				@Override
 				public void onSuccess(ResponseInfo<String> responseInfo) {
 					String data = responseInfo.result;
+					System.out.println("<><><>***data:" + data);
 					List<TopicEntity> lst = null;// ActUtils.getActivities(data);
 					ds.addAll(lst);
 					actItemAdapter.notifyDataSetChanged();

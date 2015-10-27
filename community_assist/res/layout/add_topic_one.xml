@@ -90,8 +90,6 @@
             android:id="@+id/add_topic_desc_next"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/home_activities"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="18dp"
@@ -102,5 +100,16 @@
             android:textColor="#ffffff"
             android:textSize="18sp" />
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/add_topic_one_loading_now"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerInParent="true"
+        android:indeterminateBehavior="repeat"
+        android:indeterminateDrawable="@drawable/progress_roll"
+        android:indeterminateOnly="true"
+        android:visibility="gone" />
 
 </RelativeLayout>
