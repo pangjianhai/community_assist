@@ -65,7 +65,7 @@ public class ShowTopicDetailActivity extends FragmentActivity {
 		userId = GloableApplication.getUserId();
 		topicId = getIntent().getStringExtra("topicId");
 		Fragment sspace = new TopicPostFragment();
-		Fragment tspace = new TopicPostFragment();
+		Fragment tspace = new TopicUserFragment();
 		lists.add(sspace);
 		lists.add(tspace);
 		System.out.println(")))");
@@ -77,13 +77,9 @@ public class ShowTopicDetailActivity extends FragmentActivity {
 		viewPager.setAdapter(myAdapter);
 		viewPager.setOnPageChangeListener(new MyOnPageChangeListener());
 		initParam();
-		System.out.println(")))1");
 		initData();
-		System.out.println(")))2");
 		initImage();
-		System.out.println(")))3");
 		initNumData();
-		System.out.println(")))4");
 	}
 
 	private void initParam() {
