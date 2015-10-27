@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import cn.com.hzzc.industrial.pro.GloableApplication;
 import cn.com.hzzc.industrial.pro.R;
 import cn.com.hzzc.industrial.pro.cons.SystemConst;
 import cn.com.hzzc.industrial.pro.entity.TopicEntity;
@@ -71,20 +72,17 @@ public class TopicItemAdapter extends BaseAdapter {
 		holder.topic_name.setText(te.getName());
 		holder.topic_desc.setText(desc);
 		String imgId = te.getImgId();
-//		if (imgId != null && !"".equals(imgId)) {
-//			String pic_url = SystemConst.server_url
-//					+ SystemConst.TopicUrl.getTopicImgByImgId
-//					+ "?para={imgId:'" + imgId + "'}";
-//			ImageLoader.getInstance().displayImage(pic_url, holder.topic_photo,
-//					HealthApplication.getDisplayImageOption());
-//			// String imageUri = "drawable://" + R.drawable.visitor_me_cover;
-//			// ImageLoader.getInstance()
-//			// .displayImage(imageUri, holder.topic_photo);
-//		} else {
-//			String imageUri = "drawable://" + R.drawable.visitor_me_cover;
-//			ImageLoader.getInstance()
-//					.displayImage(imageUri, holder.topic_photo);
-//		}
+		if (imgId != null && !"".equals(imgId) && !"null".equals(imgId)) {
+			String pic_url = SystemConst.server_url
+					+ SystemConst.TopicUrl.getTopicImgByImgId
+					+ "?para={imgId:'" + imgId + "'}";
+			ImageLoader.getInstance().displayImage(pic_url, holder.topic_photo,
+					GloableApplication.getDisplayImageOption());
+		} else {
+			String imageUri = "drawable://" + R.drawable.visitor_me_cover;
+			ImageLoader.getInstance()
+					.displayImage(imageUri, holder.topic_photo);
+		}
 
 		holder.topic_name.setOnClickListener(new OnClickListener() {
 

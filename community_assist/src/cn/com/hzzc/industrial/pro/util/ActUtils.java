@@ -425,6 +425,7 @@ public class ActUtils {
 	 * @return:List<TopicEntity>
 	 */
 	public static List<TopicEntity> getTopics(String data) {
+		System.out.println("util data:"+data);
 		List<TopicEntity> lst = new ArrayList<TopicEntity>();
 		try {
 			JSONObject j = new JSONObject(data);

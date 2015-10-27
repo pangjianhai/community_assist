@@ -20,7 +20,6 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 import cn.com.hzzc.industrial.pro.adapter.TopicItemAdapter;
 import cn.com.hzzc.industrial.pro.cons.SystemConst;
-import cn.com.hzzc.industrial.pro.entity.ActivityEntity;
 import cn.com.hzzc.industrial.pro.entity.TopicEntity;
 import cn.com.hzzc.industrial.pro.opsinterface.ITopicCallbackOperator;
 import cn.com.hzzc.industrial.pro.part.wipelist.SwipeMenu;
@@ -232,12 +231,6 @@ public class ListMyTopicActivity extends BaseActivity implements
 	 * @return:void
 	 */
 	public void goInto(TopicEntity item) {
-		// String cId = item.getId();
-		// Intent intent = new Intent();
-		// intent.setClass(getApplicationContext(),
-		// ShowActivityDetailActivity.class);
-		// intent.putExtra("cId", cId);
-		// startActivity(intent);
 	}
 
 	public void edit(TopicEntity item) {

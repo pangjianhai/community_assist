@@ -45,7 +45,7 @@ public class AddTopicTowActivity extends ParentActActivity implements
 	private void init() {
 		topicId = getIntent().getStringExtra("topicId");
 		add_topic_tow_img = (ImageView) findViewById(R.id.add_topic_tow_img);
-
+		add_topic_tow_img.setOnClickListener(this);
 		String pic_url = SystemConst.server_url
 				+ SystemConst.TopicUrl.getTopicImgByPicId + "?para={picId:'"
 				+ topicId + "'}";
@@ -55,7 +55,6 @@ public class AddTopicTowActivity extends ParentActActivity implements
 
 	@Override
 	public void onClick(View v) {
-		System.out.println("onclick");
 		if (v.getId() == R.id.add_topic_tow_img) {// 选择背景图片
 			selectPicture(null);
 		}
